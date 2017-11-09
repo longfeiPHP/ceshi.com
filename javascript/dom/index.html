@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js DOM</title>
+</head>
+
+<body>
+<div id="myDiv"><!-- A comment --></div>
+<ul id="myList"></ul>
+<script type="text/javascript">
+/**
+ * 属性
+ * childNodes        子节点
+ * nextSibling       下一个节点
+ * previousSibling   上一个节点
+ * parentNode        父节点
+ * firstChild        第一个子节点
+ * lastChild         最后一个子节点
+ * hasChildNodes     判断是否有子节点  someNode.childNodes.length
+ * ownerDocument     该节点所在的文档根document
+ * body              document.body   获取body属性
+ * documentElement   document.documentElement  获取html属性
+ * doctype           document.doctype   获取doctype的引用(浏览器支持的差异性这个属性很少用)
+ * title             document.title     获取title标签里面的内容
+ * URL               document.URL       获取当前页面的完整URL
+ * anchors           document.anchors   获取带name属性的a元素
+ *
+ * 
+ * 操作节点的方法(都必须获取到父节点的情况下才能操作)
+ * appendChild(newNode)     在内尾部插入节点  someNode.appendChild(newNode)
+ * insertBefore(newNode,thisNode)    在节点前插入节点
+ * replaceChild(newNode,thisNode)    替换节点
+ * removeChild(removeNode)           删除节点
+ * cloneNode(true/false)             复制节点 但是复制出来的节点没有父节点 someNode.cloneNode(true)
+ * normalize()
+ * getElementById()                  根据id获取元素
+ * getElementsByTagName()            根据标签获取元素
+ * getElementsByName()               根据name获取元素
+ * write()                           输出
+ * writeln()                         输出(末尾加换行)
+ */
+//元素节点 nodeType == 1  属性节点nodeType == 2
+var div = document.createElement('div');
+div.innerHTML = 'create div';
+document.body.appendChild(div);
+console.log(div.nodeType);//1 元素节点
+console.log(div.firstChild.nodeValue);//文本节点中的value   create div
+//文本节点 nodeType == 3
+var element = document.createElement("div");//元素节点
+element.className = "message";//属性
+var testNode = document.createTextNode("Hello Word");//文本节点1
+element.appendChild(testNode);//插入文本节点
+var anotherTextNode = document.createTextNode("Yippee");//文本节点2
+element.appendChild(anotherTextNode);
+console.log(element.childNodes.length);//2个文本节点
+element.normalize();//合并两个文本节点
+console.log(element.childNodes.length);//1个文本节点
+document.body.appendChild(element);//body 里面插入元素节点
+var newNode = element.firstChild.splitText(5);//分割文本节点
+console.log(element.firstChild);//Hello
+console.log(newNode.nodeValue);//WordYippee
+console.log(element.childNodes.length);//2
+//comment类型(注释类型)  nodeType == 8 
+var comment = document.getElementById('myDiv');
+console.log(comment.firstChild);//<!-- A comment -->
+console.log(comment.firstChild.data);//A comment
+//CDATASection类型 只针对于XML文档  nodeType == 4 
+
+//DocumentType类型 nodeType == 10 doctype
+
+//DocumentFragment类型(文档片段:代码存储仓库) nodeType == 11
+var fragment = document.createDocumentFragment();//创建仓库
+var ul = document.getElementById('myList');
+var li = null;
+for(var i=0; i<3; i++){
+	li = document.createElement('li');
+	li.appendChild(document.createTextNode("Item " + (i+1)));
+	fragment.appendChild(li);
+}
+ul.appendChild(fragment);
+
+/**
+ * dom 操作表格
+ */
+//创建table
+var table = document.createElement('table');
+table.border = 1;
+table.width = "100%";
+//创建tbody
+var tbody = document.createElement('tbody');
+table.appendChild(tbody);
+//创建第一行
+var row1 = document.createElement('tr');
+tbody.appendChild(row1);
+var row1_1 = document.createElement('td');//第一行第一列
+row1_1.appendChild(document.createTextNode('这是第一行第一列'));
+row1.appendChild(row1_1);
+var row1_2 = document.createElement('td');//第一行第二列
+row1_2.appendChild(document.createTextNode('这是第一行第二列'));
+row1.appendChild(row1_2);
+//创建第二行
+var row2 = document.createElement('tr');
+tbody.appendChild(row2);
+var row2_1 = document.createElement('td');//第二行第一列
+row2_1.appendChild(document.createTextNode('这是第二行第一列'));
+row2.appendChild(row2_1);
+var row2_2 = document.createElement('td');//第二行第二列
+row2_2.appendChild(document.createTextNode('这是第二行第二列'));
+row2.appendChild(row2_2);
+//把table插入到body
+document.body.appendChild(table);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

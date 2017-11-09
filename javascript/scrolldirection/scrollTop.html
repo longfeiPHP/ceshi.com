@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>scrollTop</title>
+<script type="text/javascript" src="../../jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<div style="border:1px solid #f00; width:200px; height:200px; overflow:auto;" id="test">
+<ul>
+	<li>adsfsdfsdsfsddf1</li>
+    <li>adsfsdfsdsfsddf2</li>
+    <li>adsfsdfsdsfsddf3</li>
+    <li>adsfsdfsdsfsddf4</li>
+    <li>adsfsdfsdsfsddf5</li>
+    <li>adsfsdfsdsfsddf6</li>
+    <li>adsfsdfsdsfsddf7</li>
+    <li>adsfsdfsdsfsddf8</li>
+    <li>adsfsdfsdsfsddf9</li>
+    <li>adsfsdfsdsfsddf10</li>
+    <li>adsfsdfsdsfsddf11</li>
+    <li>adsfsdfsdsfsddf12</li>
+    <li>adsfsdfsdsfsddf13</li>
+    <li>adsfsdfsdsfsddf14</li>
+    <li>adsfsdfsdsfsddf15</li>
+    <li>adsfsdfsdsfsddf16</li>
+</ul>
+</div>
+<button id="cli">click</button>
+<script type="text/javascript">
+$(function(){
+	$("#cli").click(function(e) {
+        var s_top = $('#test').scrollTop();
+		alert(s_top);
+    });	
+})
+</script>
+</body>
+</html>

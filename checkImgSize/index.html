@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>验证图片上传尺寸</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+</head>
+
+<body>
+
+<form method="post" action="" enctype="multipart/form-data">
+	<input id="File1" type="file" onChange="checkImg(this.value,this)" name="img" />
+    <input type="submit" value="上传" />
+</form>
+<script type="text/javascript">
+function checkImg(f,p){
+	/*if(f==''){
+		alert('请上传图片');
+		return false;	
+	}else{
+		alert(f);	
+	}*/
+	
+	//验证图片尺寸
+	
+	var img=null;
+	img=document.createElement("img");
+	document.body.appendChild(img);
+	//img.style.visibility="hidden";
+	img.src=f;
+	var imgwidth=img.width;
+	var imgheight=img.height;
+	if(p.name=="img"){
+		alert(imgwidth);
+		alert(imgheight);
+		return false;
+		if(imgwidth!=391||imgheight!=364){
+			alert("小图的尺寸应该是391x364");	
+		}
+	}
+	
+	/*
+	var img=new Image(); 
+             img.src=f;   
+          while(true){ alert(img.fileSize);
+                 if(img.fileSize>0){ alert(img.fileSize);
+                 if(img.fileSize>10*1024){       
+                     alert("图片不大于10M。"); 
+                      return false; 
+                      } 
+                      break; 
+                     } 
+ 
+          }
+	*/
+	
+	
+}
+</script>
+</body>
+</html>

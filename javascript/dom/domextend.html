@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM extend</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><!-- 文档渲染模式声明 -->
+</head>
+
+<body>
+<div id="myDiv"> <a></a> </div>
+
+<div class="select">
+	<img src="" />
+	<img class="button" src="https://www.baidu.com/img/bd_logo1.png" />
+</div>
+
+<div class="more">1</div>
+<div class="more">2</div>
+<div class="more">3</div>
+<div class="more">4</div>
+
+<div id="type" class="bd user disabled"></div>
+
+<input type="text" name="myButton" id="myButton" />
+
+<script type="text/javascript">
+/**
+ * selector API
+ */
+//查找第一个元素querySelector
+var body = document.querySelector('body');//查找元素
+console.log(body);
+var div = document.querySelector("#myDiv");//查找ID
+console.log(div);
+console.log(div.childNodes.length);//返回子节点数(包含空格和注释)
+console.log(div.childElementCount);//返回子节点数(不包含空格和注释)
+console.log(div.firstElementChild);//返回第一个子节点(不包含空格和注释)
+var cls = document.querySelector(".select");//查找class(第一个元素)
+console.log(cls);
+var firstImg = document.querySelector('img.button');//分级查找
+console.log(firstImg);
+//查找多个元素querySelectorAll
+var more = document.querySelectorAll(".more");
+console.log(more);
+for(var i=0; i < more.length; i++){
+	console.log(more[i].innerHTML);
+}
+//元素遍历(该DOM扩展于DOM元素遍历的区别是不用考虑空格和注释)
+/**
+ * childElementCount      返回子元素的个数
+ * firstElementChild      返回第一个子元素
+ * lastElementChild       返回最后一个子元素
+ * previousElementSibling 返回上一个同级元素
+ * nextElementSibling     返回下一个同级元素
+ */
+/**
+ * HTML5 DOM扩展
+ */
+var h5 = document.getElementsByClassName('more');
+console.log(h5);
+var type = document.getElementById('type');//bd user disabled
+type.classList.remove('user');//删除user 类名
+type.classList.add('user');//添加user类名
+type.classList.toggle('user');//切换user类名(如果存在则删除如果不存在则添加)
+console.log(type);
+console.log(type.classList.contains('bd'));//true判断是否包含 bd 类名
+//迭代类名
+for(var i=0, len=type.classList.length; i<len; i++){
+	console.log(type.classList[i]);
+}
+//焦点管理
+var button = document.getElementById('myButton');
+button.focus();
+console.log(document.activeElement === button);//true 
+console.log(document.hasFocus());//true 文档是否获取到了焦点
+//HTMLDocument的变化
+console.log(document.readyState);//loading  或者complete
+console.log(document.compatMode);//CSS1Compat 判断浏览器的兼容模式 CSS1Compat:兼容模式 backCompat:混杂模式
+//字符集
+console.log(document.charset);//UTF-8
+console.log(document.defaultCharset);//浏览器或操作系统的默认字符集  很少用
+//innerHTML outerHTML
+console.log(cls.innerHTML);//获取节点里面的内容
+console.log(cls.outerHTML);//获取节点以及里面的内容
+//insertAdjacentHTML
+cls.insertAdjacentHTML("beforebegin","<p>hello world!</p>");//在当前元素之前插入一个元素
+cls.insertAdjacentHTML("afterbegin","<p>hello world!</p>");//第一个子元素
+cls.insertAdjacentHTML("beforeend","<p>hello world</p>");//最后一个子元素
+cls.insertAdjacentHTML("afterend","<p>hello ok</p>");//在当前元素之后插入一个元素
+//非w3c的各个浏览器的专有扩展
+console.log(cls.children);//类似 childNodes
+console.log(cls.contains(firstImg));//true 判断firstImg节点是否是cls的子节点
+console.log(cls.innerText);//获取节点里面的内容(非html标签)  Firefox不支持
+console.log(cls.outerText);//获取节点以及里面的内容(非html标签) Firefox不支持
+function getInnerText(element){//innerText兼容写法
+	return (typeof element.textContent == "string") ? element.textContent : element.innerText;
+}
+function setInnerText(element.text){//innerText兼容写法
+	if(typeof element.textContent == "string"){
+		element.textContent = text;
+	}else{
+		element.innerText = text;
+	}
+}
+</script>
+</body> 
+</html>

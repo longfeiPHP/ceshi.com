@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>左滑删除</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<script type="text/javascript" src="../../jquery-1.9.1.js"></script>
+<script type="text/javascript" src="func.js"></script>
+<style type="text/css">
+body,ul{
+	padding:0;
+	margin:0;
+}
+ul{
+	overflow:hidden;
+	list-style:none;
+}
+.pl_pubInfoBox{
+	border-bottom:solid 1px #e5e5e5;
+	height:50px;
+	line-height:50px;
+	padding:0 10px;
+	position:relative;
+}
+.pl_pubDelBtn{
+	background-color:#ff4444;
+	width:60px;
+	height:50px;
+	right:-60px;
+	position:absolute;
+	top:0;
+	text-align:center;
+	color:#fff;
+	font-size:16px;
+}
+.pl_pubEditBtn{
+	background-color:#ff9344;
+	width:60px;
+	height:50px;
+	right:-120px;
+	position:absolute;
+	top:0;
+	text-align:center;
+	color:#fff;
+	font-size:16px;
+}
+</style>
+</head>
+
+<body>
+<ul class="pl_mainWidth">
+	<li class="pl_pubInfoBox" moveElm="true" id="patient_1">
+		<a class="pl_pubInfoContent">
+	   		<div class="pl_pubBaseInfo">
+	       		<span style="color:#4d4d4d;">刘嘉晨</span>(<span>女</span>,<span>23</span>岁)
+	  		</div>
+			<div style="clear:both;"></div>
+	    </a>
+	    <a href="" class="pl_pubEditBtn">编辑</a>
+	    <a href="" class="pl_pubDelBtn">删除</a>
+	</li>
+	<script type="text/javascript">slideOper('patient_1',120);</script>
+</ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html> 
+<meta charset="utf-8" />
+<div style="width:1200px;height:38px;background:#32C191;margin:0 auto;">
+	<div style="width:1200px;height:38px;float:left;background:#32C191;" id="nav">nav导航栏</div>
+</div>
+<div style="width:1200px;height:3000px;background:#9EAAA6;margin:0 auto;">内容</div>
+</html> 
+<!-- 引用jquery -->
+<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
+var a = $("#nav").offset().top;//获取div距离浏览器顶部高度
+//绑定浏览器滚动事件
+$(window).scroll(function() {
+	var obj_height = document.documentElement.scrollTop || document.body.scrollTop;
+	//当往下拉的高度超出div的高度时浮动跟随显示在浏览器最顶部
+	if(obj_height >= a)
+	{
+		var this_width = $("#nav").width();
+		var obj_width = $(window).width();//保证居中用的
+		$("#nav").css({"position":"fixed","left":(obj_width-this_width)/2,"top":"0px"});
+	}
+	else
+	{
+		$("#nav").css({"position":"relative","left":"0","top":"0px"});//当浏览器高度小于div原高度时去除浮动跟随,定位回到原位置
+	}
+});
+</script>

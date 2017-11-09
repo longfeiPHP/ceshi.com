@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript Object</title>
+</head>
+
+<body>
+<script> 
+/**
+ * 打开新窗口
+ */
+function openNewindow(){
+	//url name setting
+	window.open('http://www.baidu.com', 'newwindow', 'height=100, width=400, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no');
+}
+/**
+ * 关闭当前窗口(谷歌浏览器是关不掉的)
+ */	
+function closeWindow(){
+	window.close();
+}
+/**
+ * 移动当前窗口(当前窗口并不能移动而是新打开的窗口可以移动)
+ */	
+function moveWindow(){
+	myWindow = window.open('http://www.baidu.com', 'newwindow','height=200, width=200');
+	myWindow.moveTo(500,500);	
+}
+/**
+ * 调整当前窗口尺寸当前窗口并不能改变而是新打开的窗口可以改变)
+ */	
+function changeWindow(){
+	myWindow = window.open('http://www.baidu.com', 'newwindow','height=200, width=200');
+	myWindow.resizeTo(500,500);
+}
+console.log(window.navigator);
+</script>
+<button onClick="openNewindow()">打开新窗口</button>
+<button onClick="closeWindow()">关闭当前窗口</button>
+<button onClick="moveWindow()">移动当前窗口</button>
+<button onClick="changeWindow()">调整当前窗口尺寸</button>
+</body>
+</html>

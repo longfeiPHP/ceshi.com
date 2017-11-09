@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 高级程序设计 XML</title>
+</head>
+<body>
+<script type="text/javascript">
+var parser = new DOMParser();
+var xmldom = parser.parseFromString("<root><child/></root>","text/xml");
+alert(xmldom.documentElement.tagName);
+alert(xmldom.documentElement.firstChild.tagName);
+
+var anotherChild = xmldom.createElement('child');
+xmldom.doucmentElement.appendChild(anotherChild);
+var children = xmldom.getElementsByTagName("child");
+alert(children.length);
+</script>
+</body>
+</html>

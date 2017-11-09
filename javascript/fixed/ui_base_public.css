@@ -1,0 +1,433 @@
+@charset "utf-8";
+
+/*******html属性重置*******/
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form,  blockquote, fieldset, input { padding: 0; margin: 0;outline:none;
+tap-highlight-color: rgba(0,0,0,0);focus-ring-color: rgba(0, 0, 0, 0);-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-focus-ring-color: rgba(0, 0, 0, 0);  
+-moz-tap-highlight-color: rgba(0,0,0,0);-moz-focus-ring-color: rgba(0, 0, 0, 0);}
+html{font-size:10px;}
+h1, h2, h4, h5, h6, pre, code, address, caption, cite, code, em, strong, table, th, td {font-style: normal; font-weight: normal;}
+strong { font-weight: bold;}
+ul, ol { list-style: none outside none;}
+caption, th {  text-align: left;}
+table {border-spacing: 0;}
+body { font: 14px "Microsoft YaHe","Droid Sans","Arial"; color:333; background: #FFF none repeat scroll 0 0;}
+input, select, textarea { font: 12px/20px Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+i, cite, em { font-style: normal;}
+input,button,select,textarea{ outline:none;}
+input {border: 0 none; margin: 0;}
+input::-webkit-input-placeholder{ color: #4d4d4d;opacity:1;}
+/* 链接 */
+a { text-decoration: none; color:#333;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-focus-ring-color: rgba(0, 0, 0, 0);  
+-moz-tap-highlight-color: rgba(0,0,0,0);-moz-focus-ring-color: rgba(0, 0, 0, 0);}
+a:link, a:visited, a:active { text-decoration: none;}
+a:hover { text-decoration: none;} 
+
+/********************公用**********开始**************/
+/*限制最大宽度640px*/
+.doc_mian_box { margin: 0 auto; max-width: 640px; padding-bottom: 49px; padding-top: 44px; width: 100%;}
+
+/* 背景颜色 */
+.bg_gray{ background-color:#f2f2f2;}
+.bg_white{ background-color:#fff;}
+.bg_98gray{ background-color:#fafafa;}
+.bg_delred{ background-color:#f75858;}
+/*****0.5px的线************开始******************/
+.vertical_border,.border_all,.border_right,.border_left,.border_left_gray{ position:relative;}
+/*水平方向方向0.5pxborder*/
+.vertical_border::after { content: "  ";position: absolute;left: 0;top: 0;z-index:1;width: 200%;height:200%;border-top:1px solid #ebebeb;-webkit-transform-origin: 0 0;transform-origin: 0 0;-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+/*四周0.5pxborder*/
+.border_all:after{content: "  ";position: absolute;left: 0;top: 0;z-index:1;width: 200%;height:200%;border:1px solid #ebebeb;-webkit-transform-origin: 0 0;transform-origin: 0 0;-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+/*竖直右边0.5pxborder*/
+.border_right:after{content: "  ";position: absolute;left: 0;top: 0;z-index:1;width: 200%;height:200%;border-right:1px solid #ebebeb;-webkit-transform-origin: 0 0;transform-origin: 0 0;-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+/*竖直左边0.5pxborder*/
+.border_left:after{content: "  ";position: absolute;left: 0;top: 0;z-index:1;width: 200%;height:200%;border-left:1px solid #ebebeb;-webkit-transform-origin: 0 0;transform-origin: 0 0;-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+/*竖直左边灰色背景0.5pxborder*/
+.border_left_gray:after{content: "  ";position: absolute;left: 0;top: 0;z-index:1;width: 200%;height:200%;border-left:1px solid #ccc;-webkit-transform-origin: 0 0;transform-origin: 0 0;-webkit-transform: scale(.5, .5);transform: scale(.5, .5);}
+
+/*****0.5px的线************结束******************/
+
+/*灰色注释*/
+.notes_box{ color:#808080; margin:5px 10px;}
+/*固定在页面下方底部操作栏按钮*公共按钮*/
+.tabbtn_location{ position:fixed; bottom:0; width:100%; height:46px; max-width:640px; z-index:1002;}
+.btn_a_blue{background-color: #1e82d2;color: #fff;font-size: 16px;display: block; height:46px; line-height:46px; text-align:center;}
+.btn_a_red{background-color: #cf3a50;color: #fff;font-size: 16px;display: block; height:46px; line-height:46px; text-align:center;}
+.btn_a_pink{background-color: #ff7d92;color: #fff;font-size: 16px;display: block; height:46px; line-height:46px; text-align:center;}
+/*固定在页面下方两个按钮*公共按钮*/
+.tabbtn_loc_two{ position:fixed; bottom:40px; width:100%; max-width:640px; z-index:1002;}
+.tabbtn_btn2{ float:left; width:50%;}
+.tabbtn_normal{ display:block; background-color:#d9d9d9; color:#989898; text-align:center; font-size:16px; height:46px; line-height:46px; border-radius:4px; margin:0 10px;}
+.tabbtn_blue{ display:block; background-color:#1e82d2; color:#fff; text-align:center; font-size:16px; height:46px; line-height:46px; border-radius:4px; margin:0 10px;}
+/****不固定在页面底部***公共按钮******/
+.pubBtn{ display:block; width:96% !important; margin:20px auto 10px auto; height:50px; line-height:50px; font-size:16px; border:none; border-radius:2px; text-align:center; -webkit-appearance:none; background-color: #1e82d2; color: #fff;}
+.pubBtn:hover{ color: #fff;}
+/****不固定在页面底部***内层公共按钮(新)******/
+.behind_btn_box{ margin:40px 10px 10px;}
+.behind_a_blue{background-color: #1e82d2;color: #fff;font-size: 16px;display: block; height:50px; line-height:50px; text-align:center; border-radius:6px;}
+
+/*左图右文的列表结构*/
+.imgtxt_main{ padding:10px 0;}
+.imgtxt_picture{float:left; width:30px; height:30px; margin-right:10px;}
+.imgtxt_text{float:left; width:100%; margin:0 0 0 -40px;}
+.imgtxt_textw{ margin:0 0 0 40px;}
+.imgtxt_ltext{float:left;}
+.imgtxt_rtext{ float:right;}
+/*头像*/
+.headpicture_w30{ display:block; width:30px; height:30px; border-radius:50%;}
+.headpicture_w25{ display:block; width:25px; height:25px; border-radius:50%;}
+.headpicture_w45{ display:block; width:45px; height:45px; border-radius:50%;}/*2017.5.24*/
+/*字体颜色*/
+.font_red{ color:#ff515d;}
+.font_org{ color:#ffb541;}
+.font_blue{ color:#4e93d7;}
+.font_green{ color:#21be3b;}
+.font_18gray{ color:#2d2d2d;}
+.font_30gray{ color:#4d4d4d;}
+.font_60gray{ color:#989898;}
+.font_70gray{ color:#b2b2b2;}
+.font_75gray{ color:#c0c0c0;}
+
+/*公共页签*/
+.pub_tab_box{position: fixed;top: 44px;width: 100%;background-color: #fff; max-width:640px; z-index:2;}
+.pub_tab_con{ margin-top:44px;}
+.pub_tab_a2{ float:left; display:block; width:50%; height:44px; line-height:44px; text-align:center; color:#4d4d4d;}
+.pub_tab_a4{ float:left; display:block; width:25%; height:44px; line-height:44px; text-align:center; color:#4d4d4d;}
+.pub_tab_a5{ float:left; display:block; width:20%; height:44px; line-height:44px; text-align:center; color:#4d4d4d;}
+.pub_tab_current{ color:#1e82d2; border-bottom: solid 1px #1e82d2; display:block; margin:0 10px; font-weight:600;}
+/*PC端页签*/
+.pc_tab_box {width: 100%;max-width: none;background-color: #fff;}
+/*h48的列表结构*/
+.list_h48{ padding-left:10px; height:48px; line-height:48px; background-color:#fff;}
+.list_right{float: right; margin: 0 0 0 -70px; width: 100%;}
+.list_rwidth{margin: 0 0 0 70px;}
+.list_rarrowbox{ margin-right:10px; height:48px;}
+.list_rwidth i{ float:right; margin-top:-37px;font-size:24px; color:#bfbfbf; margin-right:10px;}
+.list_left{float: left; width: 70px; text-align:left; font-size:16px; color:#4d4d4d;}
+.list_select{direction: rtl; width:100%; margin:0; padding:0; -webkit-appearance:none; height:48px; border:none; font-size:14px; text-align:right; font-family:"微软雅黑"; font-size:16px; color:#4d4d4d; background-color:#fff;}
+.list_inputbox{ float:right; line-height:48px; text-align:right; font-size:16px;}
+.list_bodinput{ width:44px; height:28px; border:solid 1px #ebebeb; margin-right:6px; text-align:right; font-size:14px; border-radius: 10px; -webkit-appearance: none; margin-top: 10px; font-size:16px; color:#1e82d9; padding-right:4px;}
+.list_input{display: block; width: 100%; border: none; -webkit-appearance: none; font-size: 16px; height: 48px; background-color:#fff; color:#4d4d4d;}
+.list_button{ display: block;width: 100%;height: 48px;border: none;color: #a6a6a6;text-align: right;appearance: none;-webkit-appearance: none;    font-size: 16px;padding: 0;}
+.list_textarea_box{ margin:0 10px; padding:10px 0;}
+.list_textarea_h120{height: 120px; color: #989898; overflow: auto; -webkit-appearance: none; border: none; width: 100%; padding: 0; resize: none; font-size: 14px;}
+.list_textarea_h90{height: 90px; color: #989898; overflow: auto; -webkit-appearance: none; border: none; width: 100%; padding: 0; resize: none; font-size: 14px;}
+/*增加坐诊医院、时间*/
+.oper_icon{ position: relative;}
+.oper_iconimg{ display:block; margin-top:12px; width:24px; height:24px;}
+.oper_addtxt{ display:block; width:100%; font-size:16px;}
+/*上传图片公共部分*/
+.up_picBox{ padding:15px 0 0;}
+.up_picBox img{ width:60px; height:60px; border-radius:4px; margin-right: 10px; margin-bottom: 10px; float:left;}
+.up_picImg{ width:60px; height:60px;float:left;margin-right:10px;position: relative;z-index: 99; margin-bottom:10px;}
+.up_picBtn{ float:left; width:60px; height:60px; margin-left:-70px; opacity:0; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.img_close{ display: block; text-align: center; width: 20px; height:20px; font-size: 16px; font-weight: bold; color: #4d4d4d; opacity: .8; -webkit-transition: all .3s;  transition: all .3s; position: absolute; top: -8px; right: -8px; z-index: 100; background-color: #e5e5e5; border-radius: 50%;}
+.img_close i{ line-height:20px;}
+.up_tips{ float:left; margin-top:8px;}
+.up_tit{ font-size:14px; margin-bottom:4px;}
+
+/* 超出2行出现省略号 */
+.ellipsis_line2{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
+.ellipsis_line1{ display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;}
+.ellipsis_width{width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+/********************公用**********结束**************/
+
+/*******公用底部弹窗开始*******/
+.bottom_bg{ width:100%;height:100%;background:#000;position:fixed;top:0;right:0;opacity:0.5;z-index:1001;display:block;
+}
+.bottom_operbox{ position: fixed; margin: 0 auto; max-width: 640px; background: hsla(0,0%,100%,.95) border-box; overflow: hidden; bottom:0; width:100%; z-index:1002;}   
+.bottom_cancelbox{ height:52px; line-height:52px; display: block; font-size:18px; color:#2d2d2d; text-align:center;}
+.share_btnbox{ height:58px; line-height:58px; display: block; font-size:18px; color:#2d2d2d; text-align:center;}
+.bottom_operbox::before{ content: ''; position: absolute; top: 0; right: 0; bottombottom: 0; left: 0; margin: -30px;z-index: -1; -webkit-filter: blur(10px); filter: blur(10px); }   
+/*******公用底部弹窗结束*******/
+
+/*******公共提示开始*******/
+
+/*提示信息 无按钮 */
+.order-login-wrongtipsbox{display: none; position: fixed; top:80px; text-align:center; width:100%;z-index: 100;}
+.prompt_content{ background-color:#000; opacity:0.7; width:94%; display:block; margin:0 auto; padding:10px 0; border-radius:6px; color:#FFF; font-size:16px; }
+
+/*提示信息  有按钮 */
+.cpm_black_overlay {position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;z-index: 1001;background: black;opacity: 0.4;filter:Alpha(Opacity=50);}
+.cpm_pub_txt {position: fixed;top: 38%;left:18%;width: 64%;	background-color: #FFFFFF;z-index: 1002;border-radius: 14px;font-size: 12px;padding: 0px;}
+.cpm_prompt_tit{ text-align:center; font-size:18px; font-weight:600;padding-top:15px;}
+.cpm_prompt_con{ text-align:center; padding:0 10px 0px 10px; font-size:14px; color:#333;; }
+.cpm_pub_btn{ display:block; float:left; color:#3599fa; width:50%; text-align:center; text-decoration:none; font-size:16px;}
+.cpm_pub_btn span{ display:block; padding:10px 0;}
+.cpm_pub_btn1{display:block;color:#3599fa; text-align:center; text-decoration:none; font-size:16px; padding:10px 0;}
+.cpm_btn_box{ margin-top:15px;}
+/*微信分享提示*/
+.xlyh_step{ width:100%; max-width:1100px; margin:0 auto;}
+.xlyh_step_width{ width:100%;}
+.xlyh_step_width img{ width:100%;}
+#back{top: 0%;left: 0%;display: none;width:100%;z-index:2000;position:absolute;background-color:#fff;filter:alpha(opacity=60);opacity:0.6;}
+
+
+/*******公共提示结束*******/
+
+/*******用户选择身份按钮开始*******/
+.id_box{ position:fixed; bottom: 60px; right: 10px; z-index: 99999;}
+.id_btn{ display:block; width:36px; height:36px; position:relative; z-index:2}
+.id_btn img{ display:block; width:36px; height:36px;}
+.id_con{ background-color:#fff; position:absolute; top:0; right:0px; width:175px; border-radius:36px; padding:0 30px 0 0px;}
+.id_idTxt{ float:right; height:36px; line-height:36px;}
+.id_idTxtBor{ height:30px; border-left:solid 1px #ebebeb; padding:0 10px;}
+/*******用户选择身份按钮结束*******/
+
+/*******用户头像更换(height=70px)开始*******/
+.up_head_img{position: relative;top: -60px;right: 20px;height: 50px;float: right;border-radius: 50%;z-index: -1;}
+.up_head_input{border: 0 none;color: #8c8c8c;font-size: 14px;height: 30px;width: 100%;cursor: pointer;opacity: 0; height:70px;z-index: 1000;position: relative;}
+.up_head_arrow i{float: right; margin-right: -42px; margin-top: -43px;font-size: 20px;color: #bfbfbf;}
+/*******用户头像更换(height=70px)结束*******/
+
+
+/*******横排上传图片(height=48px)开始*******/
+.up_img_secondbox{background: url("/doctor/pages/images/member/doctor_update_.png") no-repeat right;background-size: 24px; margin-right: 10px;}
+.up_ordinary_img{ border: 0 none;color: #8c8c8c;font-size: 14px;height: 48px; width: 100%; cursor: pointer; opacity: 0;z-index: 1000;}
+/*******横排上传图片(height=48px)结束*******/
+
+/*******左右横排and横排右侧按钮样式 开始*******/
+.frame_right{ height:48px; line-height:48px; border-bottom:solid 1px #e5e5e5;}
+.frame_left{height:48px; line-height:48px; border-bottom:solid 1px #e5e5e5; font-size:16px; color:#4d4d4d;text-align:left;}
+.frame_right .jian{float: right;margin-top: -33px; font-size: 20px !important; color: #bfbfbf; margin-right: 10px;}
+.consignee_information_input {border: 0 none;color: #999;font-size: 14px;height: 46px;width: 100%; padding:0;text-align:right;margin-top:1px; background-color:#fff; -webkit-appearance:none;}
+/*******左右横排and横排右侧按钮样式 结束*******/
+
+/*不可点击的标题样式**开始*/
+.pub_nctitle{ height:40px; line-height:40px; font-size:16px; color:#333; background-color:#fff;}
+/*不可点击的标题样式**结束*/
+
+/*******地址列表**开始*******/
+.address_box{ margin-bottom:10px;}
+.address_main{ margin:0 10px;}
+.address_maninfo{ padding:10px 0 6px;}
+.address_man_name{ float:left; font-size:16px; color:#333;}
+.address_man_phone{ float:right; font-size:16px; color:#333;}
+.address_txt{ color:#4d4d4d; padding-bottom:10px; line-height:22px;}
+.address_default_box{ float:left; height:30px; line-height:30px; padding:6px 0; color:#808080;}
+.address_default_box i{ margin-right:4px; font-size:18px; float:left; margin-top:6px;}
+.address_default_current{ color:#ff515d;}
+.address_default_txt{ float:left;}
+.address_set_box{ float:right; height:30px; line-height:30px; padding:6px 0; color:#808080;}
+.address_set_del,.address_set_edit{ float:right; color:#808080; font-size:14px;}
+.address_set_del i{ float:left; margin-right:4px; font-size:18px; margin-top:6px;}
+.address_set_edit i{ float:left; margin-right:4px; font-size:19px; margin-top:6px;}
+.address_set_txt{ float:left;}
+.address_set_del{ margin-left:20px;}
+/*******地址列表**结束*******/
+
+/*******手机上头和尾的公用部分****开始**/
+
+.top_operation{ display:none;width:100%; max-width:1200px; margin:0 auto; height:46px; box-sizing:border-box;  background-color:#86c97d;}
+.top_operation_ios{ display:none;width:100%; max-width:1200px; margin:0 auto; height:64px; box-sizing:border-box;  background-color:#86c97d; padding-top:20px !important;}
+span.top_display{ display:none;}
+div.top_display{ display:none;}
+.top_display{ display:none;}
+/*app的底部操作栏*/
+.app_down_operation{width:100%; max-width:1200px; margin:0 auto; background-color:#f7f7f7;border-top:solid 1px #ccc !important; height:49px; box-sizing:border-box; vertical-align:middle;}
+.app_down_operation_img li{ width:25%; float:left; text-align:center; display:block; height:49px; font-size:12px; }
+.app_down_operation_img li img{ width:40%; width:20px; padding-top:8px;}
+.app_down_operation_img a{ display:block; height:49px;color:#999;}
+.down_current{ background-color:#fff; color:#86c97d !important;}
+/*底部操作栏wap*/
+.down_operation{ display:none;width:100%; max-width:1200px; margin:0 auto; background-color:#f7f7f7;border-top:solid 1px #ccc !important;border-bottom:solid 1px #e0e0e0; }
+.down_operation_img li{ width:20%; float:left; text-align:center; margin-top:5px;}
+.down_operation_img li img{ width:40%; width:30px;}
+/*微信的底部操作栏*/
+.wei_down_operation{display:none;width:100%;max-width:1200px;margin:0 auto;background-color:#f7f7f7; border-top:solid 1px #ccc; box-sizing:border-box;}
+.wei_down_operation_img li{ width:20%; float:left;text-align:center; margin-top:10px;}
+.wei_down_operation li img{ width:30%; max-width:30px;}
+.wei_down_operation_text li{ width:20%; float:left;text-align:center;margin-bottom:8px; color:#9e9e9e;}
+
+.app_title_center{ padding-top:14px !important;}
+.ios_app_title_center{ padding-top:31px !important;}
+/*app的*/
+/*顶部操作栏*/
+.top_moperation{ text-align:center;font-size:20px; font-weight:600;color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;line-height:46px; width:100%; }
+.bell_box,.back_box,.user_box{ display:block; width:100%;height:46px;line-height:46px;}
+.bell_box i{ color:#fff; font-size:20px; margin-right:15px; margin-top:14px;}
+.back_box i{ color:#fff; font-size:36px; margin-left:15px; margin-top:6px;}
+.user_box i{ color:#fff; font-size:24px;margin-left:15px; margin-top:12px;}
+.xiaoxi_on{ display:block; width:10px; height:10px; font-size:12px; color:#fff; text-align:center; line-height:10px;background-color:#ff6969; border-radius:50%; float:right; margin-right:14px; margin-top:-35px;}
+
+
+html,body{ 
+-webkit-touch-callout: none;
+-webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+-moz-user-select: none;
+}
+/*Wap、微信*/
+/*顶部操作栏*/
+.web_zong{ display:none; width:100%;height:46px; box-sizing:border-box;  background-color:#fcfcfc; border-bottom: solid 1px #e1e0e0;}
+.web{ width:100%; height:46px; text-align:center;}
+.web_td1{ width:10%;}
+.web_td2{ width:80%;}
+.web_td3{ width:10%;}
+.web_img img{ width:40%;}
+.web_input{ border:solid 1px #bbbbbb; border-radius:5px 0 0 5px; height:29px !important; width:100%; box-sizing:border-box;}
+.web_sou_text{ float:left; width:85%;}
+.web_sou_img{ float:left;border:solid 1px #bbbbbb; margin-left:-4px;border-radius: 0 5px 5px 0 ; height:29px; width:35px; text-align:center; background-color:#f3f3f3;box-sizing:border-box;}
+.web_sou_img a{ display:inline-block; margin-top:3px;}
+.bell_box img{ display: block; width: 22px; margin: 14px auto 0;}
+
+@media screen and (max-width:1100px){
+	/*页头页尾显示*/
+	.top_operation{ display:block;}
+	.top_operation_ios{ display:block;}
+	.down_operation{ display:block;}
+	.web_zong{ display:block;}
+	.wei_down_operation{ display:block;}
+}
+@media screen and (max-width:500px){
+	/*app*/
+	.top_denglu img{ width:25%;}/*调人头的大小*/ 
+	.top_arrow img{ padding:5px 5px/*是为了扩大可点击区域的; max-width:14px;*/}
+	.top_sou img,.top_tianjia img{ width:60%; padding:5px 5px/*是为了扩大可点击区域的*/;}
+	.top_pencil img { width:50%; padding-top:5px;}
+	
+	.top_denglu_ios img{ width:25%;}/*调人头的大小*/ 
+	.top_arrow_ios img{ padding:5px 5px/*是为了扩大可点击区域的; max-width:14px;*/}
+	.top_sou_ios img,.top_tianjia_ios img{ width:60%; padding:5px 5px/*是为了扩大可点击区域的*/;}
+	.top_pencil_ios img { width:50%; padding-top:5px;}
+	
+	/*wap、微信*/
+	.web_td1{ width:15%;}
+	.web_td2{ width:70%;}
+	.web_td3{ width:15%;}
+	.web_img img{ width:40%;}
+
+}
+@media screen and (max-width:400px){
+	.web_sou_text{width:80%;}
+	
+	
+}
+/*******手机上头和尾的公用部分****结束**/
+
+
+/* ==============
+ * 抵消PC上的样式
+ * ============== */
+
+/*抵消right_content96%宽度带来的影响*/
+@media screen and (max-width:1100px){
+#container{ border:0 none !important;}
+#container .right_content{ width:100% !important; margin:0 !important;}
+.orderlist_maincontent{ width:100% !important;}
+.order-login-right{ width:100% !important; border:none !important;}
+}
+
+
+/*******个人中心医生中心日历****开始**/
+
+.calendar_title{ background-color:#e5e5e5; height:30px;width: 14.28%;}
+.calendar_first{ border-right:solid 1px #e5e5e5;}
+.calendar{width: 14.28%;}
+.calendar_table td{font-size: 18px; padding:0;}
+.orderlist_maincontent{ width:100%;}
+.calendar_public_a{ color:#333; display:block;height: 76px;}
+.event_example{ font-size:10px; height:12px; line-height:12px; text-align:left;}
+.calendar_taday{color:#FFF; width:24px; height:24px; line-height:24px;display:block; border-radius:50%; background-color:#093; font-weight:600; float:left; margin-left:4px;}
+.calendar_tadayno{color:#FFF; width:24px; height:24px; line-height:24px;display:block; border-radius:50%; background-color:#86c97d; font-weight:600;}
+.event_num{ float:right; font-size:10px; border:solid 1px #09c; border-radius:5px; width:16px; height:14px; color:#09c; margin-top:4px; margin-right:2px;}
+.calendar_current{width:24px; height:24px; line-height:24px;border-radius:50%; border:solid 1px #093;/* color:#093;*/ box-sizing:border-box; font-weight:600;}
+.calendar_public_a:hover{ text-decoration:none; color:#333;}
+.event_example_font{border-left:solid 2px #09c; background-color:#caeaf5; display:block; margin-top:4px; height:12px;}
+.add_diary_content {position: fixed;bottom: 60px;right: 10px;text-align: right;}
+.add_diary_a img {width: 50px;margin-right: 20px;}
+.event_all{ border:none;}
+.calendar_have{width:24px; height:24px; line-height:24px;}
+.calendar_more{float:left; margin-left:4px;width:26px; height:24px; line-height:24px;}
+.public_day{ width:24px; height:24px; line-height:24px;}
+.event_day_left{float:left; margin-left:4px;}
+#bg{ display: none;  position: absolute;  top: 0%;  left: 0%;  width: 100%;  height: 100%;  background-color: #000;  z-index:1001;  -moz-opacity: 0.6;  opacity:0.6;  filter: alpha(opacity=0.6);}
+.calendar_pubLine:hover{ text-decoration:none;}
+.day_public{ width:24px; height:24px; line-height:24px;}
+.record_img img{ width:20px; margin-left:2px;}
+.record_img{ margin-top:12px;}
+.record_today{background-color: #093;border-radius: 50%;color: #fff;display: block;font-weight: 600;height: 24px;line-height: 24px;width: 24px;}
+/*2017.8.1xxx*/
+.calendar_border{ height:76px;}
+
+/*******个人中心医生中心日历****结束**/
+
+
+
+
+/*******医生端页头页尾****开始**/
+/*页尾**开始*/
+.doc_down_operation{width: 100%;max-width: 640px;margin: 0 auto;background-color:rgba(247,247,247,1);height: 49px; box-sizing: border-box;vertical-align: middle; position:fixed; bottom:0px; left:0; right:0;}
+.doc_one_operation a{ display:block;}
+.doc_one_operation{ float:left; text-align:center; width:33.3%;}
+.doc_operation_img{ height:22px; padding-top:8px;}
+.doc_operation_name{ color:#999; font-size:12px;}
+.doc_operation_currrnt{ color:#1e82d2; font-size:12px; }
+/*底栏四个*/
+.doc_one_operation_4{ float:left; text-align:center; width:25%;}
+.doc_one_operation_4 a{ display:block;}
+/*底栏两个*/
+.doc_one_operation_2{ float:left; text-align:center; width:50%;}
+.doc_one_operation_2 a{ display:block;}
+.menses_operation_currrnt{ color:#ff7d92; font-size:12px; }
+/*页尾**结束*/
+
+/*页头**开始*/
+.doc_top_operation{left: 0;right: 0;position: fixed;z-index: 1000; background-color:#FFF; border-color:#e5e5e5;width: 100%;max-width:640px;margin: 0 auto;height:44px;box-sizing: border-box; top:0;}
+.doc_top_operation_ios{left: 0; padding-top:20px !important; right: 0;position: fixed;z-index: 1000; background-color:#FFF; border-color:#e5e5e5;width: 100%;max-width:640px;margin: 0 auto;height:64px;box-sizing: border-box; top:0;}
+.doc_top_mopreation{ font-size:18px; text-align:center; font-weight:600; line-height:44px;}
+.doc_go_black{ display:block; line-height:44px;}
+.doc_go_black img{ height:16px;margin-left:10px; float:left; margin-top:13px; margin-right:4px;}
+.doc_go_black span{ font-size:16px; color:#1e82d2;}
+.doc_go_black_te span{  color:#ff7d92;}
+.doc_xiaoxi_bell{ display:block;height:44px; text-align:right;}
+.doc_xiaoxi_bell i{ color:#1e82d2; font-size:20px; margin-right:15px; margin-top:13px;}
+.doc_bell_tishi{background-color: #ff515d;border-radius:8px;position: absolute;right:10px; bottom:24px; color:#fff; padding:0 4px; font-size:10px;}
+.analysis_a{ float:right;font-size:16px; line-height:44px; margin-right:10px; display:block; width:50px; text-align:right;}
+/*页头**结束*/
+/*******医生端页头页尾****结束**/
+.center_other{ background-color:#fff;}
+.head_authentication_box{ background-color:#fff;}
+.up_doc_head img{ width:50px; height:50px; border-radius:50%; margin:15px 0;}
+.renzheng_box_a{ display:block;}
+.up_doc_head{ display:block;}
+.doc_nam_zhichen{ font-size:16px; margin-top:20px;font-weight:600;}
+.doc_nam_zhichen span{ margin-right:10px;}
+.renzheng_no{ color:#999; font-size:14px;font-weight:600;}
+.renzheng_ing{ color:#1e82d2; font-size:14px;font-weight:600;}
+.renzheng_fail{ font-size:14px;font-weight:600;}
+.renzheng_ed{ color:#F93; font-size:14px;font-weight:600;}
+.rezheng_red_spot{ height:8px; width:8px; border-radius:50%; background:#ff515d; display:block; float:left; margin-top:9px; margin-right:5px;}
+
+.head_authentication_jian{ float:right; margin-top:26px;}
+.head_authentication_jian i{color: #d9d9d9;font-size: 24px;margin-right: 10px;}
+
+/*医生列表*开始*/
+.search_area{ width:100%; height:40px; border-bottom: solid 1px #f2f2f2; background-color:#fff; box-sizing:border-box;}
+.appointment_doctor_area{ display:block;}
+.search_forarea{ float:left; width:50%/*12.21*/;text-align:center; line-height:40px; height:40px;}
+.search_forkeshi{ float:left; width:50%; margin-top:6px;}
+.search_area_choice,.search_keshi_choice{ width:100%;-moz-appearance:none; /* Firefox */-webkit-appearance:none; /* Safari 和 Chrome */border:none; text-align:center !important; height:36px; outline:none; border-radius:0;}
+.search_area_choice{ border-right:solid 1px #CCC; box-sizing:border-box; background-color:#fff;}
+.appointment_docter_list{ background-color:#FFF; margin-top:6px;}
+.appointment_docter_img{border-radius: 50%; width:45px;height:45px; margin-top:5px;}
+.appointment_docter_name{ font-size: 16px; font-weight: 600; color: #333; margin-right: 4px; float: left;}
+.appointment_doctor_tuijian_img{ max-width:45px;}
+.doctor_goodjob{ color:#737373; margin-top:5px; }
+.doctor_hospital{ margin-bottom: 6px; color: #333; font-size: 14px; clear: both; margin-top: 6px;}
+.doctor_hospital_detail{ margin-bottom: 6px; color: #333; font-size: 14px; clear: both;}
+.doctor_goodjob_more{color:#737373; font-size: 14px; margin-right: 15px;display: -webkit-box;-webkit-line-clamp:2;   -webkit-box-orient: vertical;overflow: hidden; margin-bottom:10px;}
+.doctor_gongneng{ max-width:50px;}
+.doctor_tuijian_num{ color:#eb6100; position:relative;top:-45px;}
+.doctor_goodjob em{display:block; height:7px; margin:6px 0; border-right:1px solid #bcbcbc;overflow:hidden;}
+.doctor_list_service_img{ width:100%;}
+.doctor_list_service_img li{ float:left; display:block; margin-right:10px;}
+.doctor_list_service_img li img{ width:30px;}
+.doctor_name{font-size:16px; font-weight:600; color:#333; margin-right:4px; float: left;}
+.doctor_pubStyle{ float: left; margin-top: 2px; font-size:14px;}
+.responsible_box{ margin-top:10px; font-weight:600; font-size:14px; color:#4d4d4d;}
+/*医生列表*结束*/
+
+/*提示页面（购物车为空、定位失败、医生注册成功等页面）*/
+.sc_ndMain{ margin:0 10px;}
+.sc_ndImg{ display:block; width:50%; margin:50px auto 30px;}
+.sc_ndTxt{ font-size:16px; color:#4d4d4d; text-align:center; margin-bottom:15px;}
+

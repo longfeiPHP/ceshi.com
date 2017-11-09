@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>flexslider</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<script type="text/javascript" src="../../jquery-1.9.1.js"></script>
+<script type="text/javascript" src="jquery.flexslider.js"></script>
+<style>
+ul,li{margin:0;padding:0;}
+</style>
+</head>
+
+<body>
+<div class="flexslider_im" style="border:none;margin:0;">
+    <div class="slides">
+        <li>
+        	<table>
+            	<tr><td><img width="100%" src="images/1.jpg"/></td></tr>
+            </table>
+        </li>
+        <li>
+        	<table>
+            	<tr><td><img width="100%" src="images/2.jpg"/></td></tr>
+            </table>
+        </li>
+        <li>
+        	<table>
+            	<tr><td><img width="100%" src="images/3.jpg"/></td></tr>
+            </table>
+        </li>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+	$('.flexslider_im').flexslider({
+		animation:"fade",
+		directionNav:false,
+		slideshowSpeed: 4000, //展示时间间隔ms
+		animationSpeed: 1000, //滚动时间ms
+		touch: true, //是否支持触屏滑动
+	}); 	
+});
+</script>
+</body>
+</html>

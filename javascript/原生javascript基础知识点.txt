@@ -1,0 +1,45 @@
+1、万物皆对象;所有的属性和方法都隶属于window
+   document.getElementById('id') = window.document.getElementById('id')
+
+   获取浏览器可视区域的万能方法
+   var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+   var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+   window对象
+   window.open() - 打开新窗口
+   window.close() - 关闭当前窗口
+   window.moveTo() - 移动当前窗口
+   window.resizeTo() - 调整当前窗口的尺寸
+
+   location.hostname 返回 web 主机的域名
+   location.pathname 返回当前页面的路径和文件名
+   location.port 返回 web 主机的端口 （80 或 443）
+   location.protocol 返回所使用的 web 协议（http:// 或 https://）
+
+   history.back() - 与在浏览器点击后退按钮相同
+   history.forward() - 与在浏览器中点击按钮向前相同
+
+   window.navigator 访问者浏览器的信息
+
+2、对象就是json格式,json格式也是对象格式:{a:'a',b:'bbb'}
+   对象转换成json格式JSON.stringify(obj);
+
+3、js所有数据都隶属于window:    console.log(this);//object window
+
+4、函数定义
+   function abc(){ alert('abc');}
+   var abc = function(){ alert('abc');}
+5、函数的使用
+   abc();
+
+6、event:事件对象(事件触发的过程中产生的对象)如下例
+<script type="text/javascript">
+function e(eve){
+	eve = event || window.event;
+	console.log(eve);
+}
+document.onkeydown = e;
+
+</script>
+<button onClick="e(event)">event</button>
+

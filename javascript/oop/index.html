@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript 面向对象</title>
+</head>
+
+<body>
+<script type="text/javascript">
+/**
+ * javascript面向对象编程(一):封装
+ **/
+//cat 对象
+function Cat(name,color){
+	this.name = name;//不确定的成员属性
+	this.color = color;//不确定的成员属性
+}
+Cat.prototype.type = '猫科动物';//固定的成员属性
+Cat.prototype.eat = function(){//成员方法
+	alert('吃老鼠');	
+}
+
+//实例化对象
+var cat1 = new Cat('大毛','黄色');
+
+//访问成员属性和方法
+//alert(cat1.name);     //大毛
+//alert(cat1.color);    //黄色
+//alert(cat1.type);     //猫科动物
+//cat1.eat();           //alert 吃老鼠
+
+//判断实例与对象的关系
+//alert(cat1 instanceof Cat);               //true  cat1是否是Cat的实例
+//alert(Cat.prototype.isPrototypeOf(cat1)); //true  cat1是否是Cat的实例
+
+//判断属性与实例的关系
+//alert(cat1.hasOwnProperty("name"));       //true  判断属性是否是自己的熟悉还是继承自prototype的属性
+//alert(cat1.hasOwnProperty("type"));       //false 判断属性是否是自己的熟悉还是继承自prototype的属性
+//alert("name" in cat1);                    //true  判断属性是否属于实例
+//alert('type' in cat1);                    //true  判断属性是否属于实例
+
+//in 遍历对象中的所有属性
+/*for(var prop in cat1){
+	alert("cat1["+prop+"]");	
+}*/
+/////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * javascript面向对象编程(二):继承
+ **/
+function Animal(){//动物对象 相当于父类
+	this.species = '动物';	
+}
+function Cat(name,color){
+	this.name = name;
+	this.color = color;	
+}
+Cat.prototype = new Animal();//继承
+Cat.prototype.constructor = Cat;
+var cat1 = new Cat('大毛','黄色');
+alert(cat1.name);
+alert(cat1.color);
+alert(cat1.species);
+</script>
+</body>
+</html>

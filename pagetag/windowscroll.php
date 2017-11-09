@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>window scroll public</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<style>
+.tag{width:50%; height:40px; float:left; text-align:center; color:#FFF;}
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body>
+<div style="width:100%; background:#CCC; position:fixed;">
+	<a href="javascript:showone()" class="tag" style="background-color:#f00;">tagOne</a>
+    <a href="javascript:showtwo()" class="tag">tagTwo</a>
+</div>
+<div id="con1">
+	<ul>
+    	<li>conone1</li>
+        <li>conone2</li>
+        <li>conone3</li>
+        <li>conone4</li>
+        <li>conone5</li>
+        <li>conone6</li>
+        <li>conone7</li>
+        <li>conone8</li>
+        <li>conone9</li>
+        <li>conone10</li>
+        <li>conone11</li>
+        <li>conone12</li>
+        <li>conone13</li>
+        <li>conone14</li>
+        <li>conone15</li>
+        <li>conone16</li>
+        <li>conone17</li>
+        <li>conone18</li>
+        <li>conone19</li>
+        <li>conone20</li>
+        <li>conone21</li>
+        <li>conone22</li>
+        <li>conone23</li>
+        <li>conone24</li>
+        <li>conone25</li>
+        <li>conone26</li>
+        <li>conone27</li>
+        <li>conone28</li>
+        <li>conone29</li>
+        <li>conone30</li>
+        <li>conone31</li>
+        <li>conone32</li>
+        <li>conone33</li>
+        <li>conone34</li>
+        <li>conone35</li>
+        <li>conone36</li>
+        <li>conone37</li>
+        <li>conone38</li>
+        <li>conone39</li>
+        <li>conone40</li>
+        <li>conone41</li>
+        <li>conone42</li>
+        <li>conone43</li>
+        <li>conone44</li>
+        <li>conone45</li>
+        <li>conone46</li>
+        <li>conone47</li>
+        <li>conone48</li>
+        <li>conone49</li>
+        <li>conone50</li>
+        <li>conone51</li>
+        <li>conone52</li>
+        <li>conone53</li>
+        <li>conone54</li>
+        <li>conone55</li>
+        <li>conone56</li>
+        <li>conone57</li>
+        <li>conone58</li>
+        <li>conone59</li>
+        <li>conone60</li>
+        <li>conone61</li>
+        <li>conone62</li>
+        <li>conone63</li>
+        <li>conone44</li>
+        <li>conone55</li>
+        <li>conone66</li>
+        <li>conone67</li>
+        <li>conone68</li>
+        <li>conone69</li>
+        <li>conone70</li>
+        <li>conone71</li>
+        <li>conone72</li>
+    </ul>
+</div>
+<div id="con2" style="display:none;">
+	<ul>
+    	<li>contwo1</li>
+        <li>contwo2</li>
+        <li>contwo3</li>
+        <li>contwo4</li>
+        <li>contwo5</li>
+        <li>contwo6</li>
+        <li>contwo7</li>
+        <li>contwo8</li>
+        <li>contwo9</li>
+        <li>contwo10</li>
+        <li>contwo11</li>
+        <li>contwo12</li>
+        <li>contwo13</li>
+        <li>contwo14</li>
+        <li>contwo15</li>
+        <li>contwo16</li>
+        <li>contwo17</li>
+        <li>contwo18</li>
+        <li>contwo19</li>
+        <li>contwo20</li>
+        <li>contwo21</li>
+        <li>contwo22</li>
+        <li>contwo23</li>
+        <li>contwo24</li>
+        <li>contwo25</li>
+        <li>contwo26</li>
+        <li>contwo27</li>
+        <li>contwo28</li>
+        <li>contwo29</li>
+        <li>contwo30</li>
+        <li>contwo31</li>
+        <li>contwo32</li>
+        <li>contwo33</li>
+        <li>contwo34</li>
+        <li>contwo35</li>
+        <li>contwo36</li>
+        <li>contwo37</li>
+        <li>contwo38</li>
+        <li>contwo39</li>
+        <li>contwo40</li>
+        <li>contwo41</li>
+        <li>contwo42</li>
+        <li>contwo43</li>
+        <li>contwo44</li>
+        <li>contwo45</li>
+        <li>contwo46</li>
+        <li>contwo47</li>
+        <li>contwo48</li>
+        <li>contwo49</li>
+        <li>contwo50</li>
+        <li>contwo51</li>
+        <li>contwo52</li>
+        <li>contwo53</li>
+        <li>contwo54</li>
+        <li>contwo55</li>
+        <li>contwo56</li>
+        <li>contwo57</li>
+        <li>contwo58</li>
+        <li>contwo59</li>
+        <li>contwo60</li>
+        <li>contwo61</li>
+        <li>contwo62</li>
+        <li>contwo63</li>
+        <li>contwo44</li>
+        <li>contwo55</li>
+        <li>contwo66</li>
+        <li>contwo67</li>
+        <li>contwo68</li>
+        <li>contwo69</li>
+        <li>contwo70</li>
+        <li>contwo71</li>
+        <li>contwo72</li>
+    </ul>
+</div>
+</body>
+</html>

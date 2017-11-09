@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>lazyload img</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<script type="text/javascript" src="../../jquery-1.9.1.js"></script>
+<script type="text/javascript" src="jquery.lazyload.js"></script>
+<style>
+ul{ margin:0; padding:0;}
+li{ margin:0; padding:0; list-style-type:none;}
+</style>
+</head>
+<body>
+<ul>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="1.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="2.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="3.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="4.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="5.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="6.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="7.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+    <li>
+    	<span style="float:left; width:20%;"><img class="lazy" alt="" width="100%" height="100" data-original="8.jpg" /></span>
+        表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏的图片还差10个像素可见,即10个像素预加载表示隐藏预加载
+    </li>
+    <div style="clear:both"></div>
+
+</ul>
+<script type="text/javascript">
+$(function() {
+	$("img.lazy").lazyload({
+		//这里的参数可以不用配置
+		threshold : 10,//默认为0;10表示隐藏的图片还差10个像素可见,即10个像素预加载
+		//event : "click",//设置加载事件,默认为滚动时可视时加载;click:表示点击该图片时才加载
+		effect : "fadeIn",//显示效果
+		placeholder : "default.png"
+	});
+});
+</script>
+</body>
+</html>

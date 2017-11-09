@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery插入的元素绑定click事件</title>
+<script type="text/javascript" src="../../jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<button id="clic">点击</button>
+<ul id='test'>
+
+</ul>
+<script type="text/javascript">
+$(function(){
+	$("#clic").click(function(e) {
+        $("#test").html('<li>absdfsdf</li>');	
+    });
+	$("#test li").click(function(e) {
+        alert(111);
+    });
+});
+</script>
+</body>
+</html>

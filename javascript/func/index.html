@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript func</title>
+</head>
+
+<body>
+<script type="text/javascript">
+//函数赋值变量
+var func = function(){
+	console.log('func');	
+}
+func();//func
+//简单的函数闭包
+var mess = 'hello';
+function sayHello(){
+	console.log(mess);	
+}
+sayHello();//hello
+//复杂的闭包  闭包就是不用传参数就可以获取到作用域以上的变量,调用函数只可以调用同级函数
+var iBaseNum = 10;
+function addNum(iNum1,iNum2){
+	function doAdd(){
+		return iNum1 + iNum2 + iBaseNum;	
+	}
+	return doAdd();	
+}
+console.log(addNum(1,2));//13
+
+function f1(){//闭包的两个作用:1、内部函数获取外部变量;2、局部变量保存到内存中(在函数外部调用内部的函数)
+	var n = 999;
+	nAdd = function(){
+		n += 1;
+	};
+	function f2(){
+		alert(n);	
+	}
+	return f2();
+}
+var result = f1();
+</script>
+</body>
+</html>

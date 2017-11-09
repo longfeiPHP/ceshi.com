@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<video id="video" width="500" controls="controls" preload="true" style="background:#333" webkit-playsinline x-webkit-airplay>
+    <source src='ceshi.mp4' type="video/mp4" -webkit-playsinline="true"></source>';
+    您的浏览器不支持video标签
+</video>
+<div id="notice" style="width:500px; height:280px; background:#CCC; text-align:center; line-height:280px; display:none;">
+试看5秒结束，您不是<a href="http://www.baidu.com">会员请去冲会员</a>
+</div>
+<hr />
+<input type="button" onclick="pose()" value="暂停" />
+<input type="button" onclick="play()" value="播放" />
+<input type="button" onclick="restart()" value="重置" />
+<input type="button" onclick="counttime()" value="获取总时长" />
+<input type="button" onclick="currtime()" value="当前时间" />
+<input type="button" onclick="fword(10)" value="前进10秒" />
+<input type="button" onclick="rewind(10)" value="后退10秒" />
+<input type="button" onclick="selecttimeplay(50)" value="在50秒处播放" />
+<input type="button" onclick="fast(0.1)" value="快放0.1" />
+<input type="button" onclick="slow(0.1)" value="慢放0.1" />
+<input type="button" onclick="volumeadd(0.1)" value="音量+0.1" />
+<input type="button" onclick="volumeless(0.1)" value="音量-0.1" />
+<input type="button" onclick="muted()" value="静音" />
+<input type="button" onclick="removemuted()" value="取消静音" />
+当前时间<input type="text" value="" id="currTiem" />
+<hr />
+<a href="http://itunes.apple.com/us/app/id1071481236">app store</a><!-- http://itunes.apple.com/us/app/id1071481236 -->
+<script>
+	var member = false;//非会员
+	//获取video元素
+	var video = document.getElementById("video");
+	
+	/**页面加载完后自动获取视频时长**/
+	var i = setInterval(function() {
+    // 这里注意, 必须判断视频的 readyState。
+    // 因为有可能没加载完，则获取到的视频时长信息是不正确的。
+    if(video.readyState > 0) {
+        // 计算,10进制，以及取模
+        //var minutes = parseInt(video.duration / 60, 10);
+        //var seconds = video.duration % 60;
+		alert(video.duration);
+        // (此处可以添加代码，将分钟，秒数显示到需要的地方)
+        // ...
+        // 执行到这里，就将循环定时器清除。
+        clearInterval(i);
+    }
+	}, 200);
+	
+	//暂停方法
+	function pose(){
+		video.pause();
+	}
+	//播放方法
+	function play(){
+		video.play();
+	}
+	//将全部属性回复默认值，视频恢复重新开始状态
+	function restart(){
+		video.load();
+	}
+	//获取视频总时长
+	function counttime(){
+		alert(parseInt(video.duration)+'s');
+	}
+	function currtime(){
+		alert(parseInt(video.currentTime)+'s');	
+	}
+	//前进10s
+	function fast(time){
+		video.currentTime += time;
+	}
+	//后退10s
+	function fword(time){
+		video.currentTime += time;
+	}
+	//快退
+	function rewind(time){
+		video.currentTime -= time;
+	}
+	//在50秒处播放
+	function selecttimeplay(){
+		video.currentTime = 50;
+	}
+	//快放0.1
+	function fast(num){
+		video.playbackRate += num;	
+	}
+	//慢放0.1 不能点十次，也就是慢放到1时会暂停
+	function slow(num){
+		video.playbackRate -= num;	
+	}
+	//音量加10%
+	function volumeadd(num){
+		video.volume += num;
+	}
+	//音量减10%
+	function volumeless(){
+		video.volume -= num;
+	}
+	//静音
+	function muted(){
+		video.muted = true;
+	}
+	//取消静音
+	function removemuted(){
+		video.muted = false;
+	}
+	
+	//试看一段时间后暂停
+	function currenttime(){
+		var curtime = parseInt(video.currentTime);
+		$("#currTiem").val(curtime);
+		//非会员到5秒后暂停并且把播放时间和member_id 存入localStorage
+		if(member==false && curtime>=5){
+			clearInterval(checktime);
+			video.currentTime = 5;
+			video.pause();
+			$("#video").hide();
+			$("#notice").show();
+			localStorage.playtime = curtime;//把播放时间存入localStorage
+		}
+	}
+	var checktime = setInterval(currenttime,1000);
+	
+	//记忆播放功能 会员才有记忆播放功能
+	$(function(){
+		if(localStorage.playtime && member!=false){
+			video.currentTime = localStorage.playtime;
+			function savelocalStorage(){
+				var curtime = parseInt(video.currentTime);
+				localStorage.playtime = curtime;
+			}
+			setInterval(savelocalStorage,1000);//1秒存一次
+		}else{
+			video.currentTime = 0;
+		}
+	});
+</script>
+</body>
+</html>

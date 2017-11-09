@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>轮播效果</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<style>
+body,ul,ol{ padding:0; margin:0;}
+li{ list-style:none;}
+.lunbo_title{ background-color:rgba(255, 255, 255, 0.6); color:#595959; position:absolute; width:100%; line-height:28px; bottom:0px;}
+</style>
+</head>
+<body>
+<div class="scroll_bg">
+	<ul>
+		<li>
+			<a href="">
+				<img src="1.jpg" width="100%" />
+				<div class="lunbo_title">
+                	<span style="font-size:14px; margin-left:10px;">1111111111111</span>
+                </div>
+            </a>
+        </li>
+		<li>
+			<a href="">
+				<img src="2.jpg" width="100%" />
+				<div class="lunbo_title">
+                	<span style="font-size:14px; margin-left:10px;">222222222222</span>
+                </div>
+            </a>
+        </li>
+		<li>
+			<a href="">
+				<img src="3.jpg" width="100%" />
+				<div class="lunbo_title">
+                	<span style="font-size:14px; margin-left:10px;">333333333333</span>
+                </div>
+            </a>
+        </li>
+		<li>
+			<a href="">
+				<img src="4.jpg" width="100%" />
+				<div class="lunbo_title">
+                	<span style="font-size:14px; margin-left:10px;">4444444444</span>
+                </div>
+            </a>
+        </li>
+	</ul>
+</div>
+<script>
+function DY_Scroll(scroll_class,iffocus,ifauto,time){
+	/**
+	 * 使用方法:只需在页面中构建出如下结构即可
+	 *	<div class="scroll_bg">
+	 *		<ul>
+	 *      	<li>...</li>
+	 *	    </ul>
+	 *	</div>
+	 *	 
+	 *	scroll_class：class名 
+	 *	iffocus：是否显示聚焦点 
+	 *  ifauto：是否自动滑动 
+	 *  time：时间间隔(秒)
+	*/
+	var scroll_bg = $("."+scroll_class);
+	var scroll_ul = scroll_bg.find("ul");
+	var scroll_li = scroll_ul.find("li");
+	var window_w = $(window).width();
+	var scroll_li_w = scroll_li.outerWidth(true);
+	//设置样式
+	scroll_bg.css({"width":"100%","overflow":"hidden","position":"relative"});
+	scroll_ul.css({"width":"9999px"})
+	scroll_li.css({"width":window_w,"float":"left"});
+	if(iffocus){
+		//焦点元素
+		var ols = '<ol>';
+		for(var i=0;i<scroll_li.length;i++){
+			ols += '<li><a></a></li>';
+		}
+		ols += '</ol>';
+		scroll_ul.after(ols);
+		//焦点样式
+		var scroll_ol = scroll_bg.find('ol');
+		var ol_li = scroll_ol.find('li');
+		var ol_li_a = ol_li.find('a');
+		scroll_ol.css({"position":"absolute","bottom":"12px","right":"20px"});
+		ol_li.css({"margin":"0 4px","display":"inline-block","zoom":"1","display":"inline","float":"left"});
+		ol_li_a.css({"background":"#86c97d","width":"8px","height":"8px","display":"block","background":"#d9d9d9","cursor":"pointer","text-indent":"-9999px","-webkit-border-radius":"20px","-moz-border-radius":"20px","-o-border-radius":"20px","border-radius":"20px"});
+		ol_li_a.eq(0).css('background','#86c97d');
+		var focus_num = 0;
+	}
+	//添加滑动效果
+	scroll_bg.on('touchstart',function(){
+		if(t){
+			clearInterval(t);
+		}
+		var intX = event.targetTouches[0].pageX;//点击的X坐标
+		$(this).on('touchmove',function(){
+			event.preventDefault();
+			var moveX = event.targetTouches[0].pageX;//动态获取鼠的X坐标
+			var disX = intX - moveX;
+			if(disX>0){//左滑
+				if(disX>10){
+					scroll_ul.animate({marginLeft:-scroll_li_w},function(){
+						scroll_ul.find('li').eq(0).appendTo(scroll_ul);
+						scroll_ul.css('margin-left',0);
+			        });
+					$(this).off('touchmove');
+					if(iffocus){
+						focus_num++;
+						if(focus_num==scroll_li.length){
+							focus_num = 0;
+						}
+						scroll_bg.find('ol').find('a').css('background','#d9d9d9');
+						scroll_bg.find('ol').find('li').eq(focus_num).find('a').css('background','#86c97d');
+					}
+				}
+			}else{//右滑
+				if(disX<-10){
+					scroll_ul.find('li:last').prependTo(scroll_ul);
+		            scroll_ul.css('margin-left',-scroll_li_w);
+		            scroll_ul.animate({marginLeft:0});
+					$(this).off('touchmove');
+					if(iffocus){
+						if(focus_num==0){
+							focus_num = scroll_li.length;
+						}
+						focus_num--;
+						scroll_bg.find('ol').find('a').css('background','#d9d9d9');
+						scroll_bg.find('ol').find('li').eq(focus_num).find('a').css('background','#86c97d');
+					}
+				}
+			}
+		});
+		$(this).on('touchend',function(){
+			if(ifauto){
+				clearInterval(t);
+				t = setInterval(function(){
+					scroll_ul.animate({marginLeft:-scroll_li_w},function(){
+						scroll_ul.find('li').eq(0).appendTo(scroll_ul);
+						scroll_ul.css('margin-left',0);
+			        });
+					if(iffocus){
+						focus_num++;
+						if(focus_num==scroll_li.length){
+							focus_num = 0;
+						}
+						scroll_bg.find('ol').find('a').css('background','#d9d9d9');
+						scroll_bg.find('ol').find('li').eq(focus_num).find('a').css('background','#86c97d');
+					}
+				},time*1000);
+			}
+		});
+	});
+	//自动滑动
+	if(ifauto){
+		var t = setInterval(function(){
+			scroll_ul.animate({marginLeft:-scroll_li_w},function(){
+				scroll_ul.find('li').eq(0).appendTo(scroll_ul);
+				scroll_ul.css('margin-left',0);
+	        });
+			if(iffocus){
+				focus_num++;
+				if(focus_num==scroll_li.length){
+					focus_num = 0;
+				}
+				scroll_bg.find('ol').find('a').css('background','#d9d9d9');
+				scroll_bg.find('ol').find('li').eq(focus_num).find('a').css('background','#86c97d');
+			}
+		},time*1000);
+	}
+}
+$(function(){
+	DY_Scroll('scroll_bg',true,true,2);
+});
+</script>
+</body>
+</html>

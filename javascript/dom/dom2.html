@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Example XHTML page</title>
+        <link href="css1.css" rel="stylesheet" />
+        <link href="css2.css" rel="stylesheet" />
+        <style>
+            body{ background: #ccc;}
+        </style>
+	</head>
+	<body>
+		<div id="myDiv" style="background-color:blue;width:10px;height:25px;"></div>
+		<script>
+            /**
+             * 控制样式(行内样式)
+             */
+			var myDiv = document.getElementById("myDiv");
+			myDiv.style.cssText = "width:100px; height:100px; background-color:green;border:2px solid #f00;";//一次性设置多个样式
+			myDiv.style.removeProperty("border");//删除样式
+			//迭代样式
+			for(var i=0, len=myDiv.style.length; i<len; i++){
+				var prop = myDiv.style[i];//或者myDiv.style.item(i)
+				value = myDiv.style.getPropertyValue(prop);
+				console.log(prop+':'+value);
+			}
+            /**
+             * 操作样式表(CSS):包括页面中style的样式(不常用)
+             */
+            var supportsDOM2StyleSheets = document.implementation.hasFeature("StyleSheets","2.0");
+            console.log(supportsDOM2StyleSheets);//判断是否支持DOM2级的样式表
+            var style1 = document.styleSheets[0];//css1.css
+            var style2 = document.styleSheets[1];//css2.css
+            var style3 = document.styleSheets[2];//页面中的style样式表
+            console.log(style1);//获取第一个样式表
+            console.log(style2);//获取第二个样式表
+            console.log(style3);//获取第三个样式表
+            //添加样式规则
+            style1.insertRule("div { border:1px solid #ff0}",0);//非IE
+            style1.addRule("div","border:1px solid #ff0",0);//IE
+            //deleteRule 删除规则  removeRule IE
+		</script>
+	</body>
+</html>

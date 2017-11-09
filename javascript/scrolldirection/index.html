@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>判断滚动条滚动方向</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<script type="text/javascript" src="../../jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<div id="top_fix" style="width:100%;height:50px; background:#0CC; position:fixed; top:0; left:0;"></div>
+<ul>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+<li>sd2fs3dfs32df1s3d21</li>
+</ul>
+<script type="text/javascript">
+var scrollTop0 = $(document).scrollTop();
+if(scrollTop0>0){
+	var intScroll = scrollTop0;
+}else{
+	var intScroll = 0;
+}
+
+$(window).scroll(function(e) {
+	var scrollTop = $(document).scrollTop();
+	if(scrollTop>intScroll){
+		$("#top_fix").slideUp(100);
+		console.log('down');
+	}else{
+		$("#top_fix").slideDown(100);
+		console.log('up');
+	}
+	intScroll = scrollTop;
+});
+</script>
+</body>
+</html>

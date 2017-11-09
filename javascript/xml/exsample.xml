@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorkInfo>
+  <WorkInfoName>
+    <WorkId>1</WorkId>
+    <xml>newflow.xml</xml>
+  </WorkInfoName>
+  <WorkInfoName>
+    <WorkId>2</WorkId>
+    <xml>2.xml</xml>
+  </WorkInfoName>
+  <WorkInfoName>
+    <WorkId>3</WorkId>
+    <xml>3.xml</xml>
+  </WorkInfoName>
+  <WorkInfoName>
+    <WorkId>4</WorkId>
+    <xml>4.xml</xml>
+  </WorkInfoName>
+</WorkInfo>

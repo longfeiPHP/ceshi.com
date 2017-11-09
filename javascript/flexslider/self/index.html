@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>jquery带按钮的图片切换效果</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<style type="text/css">
+body,ul{ padding:0; margin:0;}
+li{ list-style:none;}
+.bg{ width:440px; position:relative; margin:20px auto;}
+.bg .prev,.bg .next{ width:50px; height:100px; background:#000; color:#FFF; text-align:center; line-height:100px; position:absolute; top:0;}
+.bg .prev{ left:0; cursor:pointer;}
+.bg .next{ right:0; cursor:pointer;}
+.bg .imgbg{ width:100px; height:100px; margin-left:60px; overflow:hidden;}
+.bg .imgbg ul{ width:9999px;}
+.bg .imgbg ul li{ width:100px; height:100px; float:left; margin-right:10px; background:#f00; line-height:100px; text-align:center;}
+</style>
+</head>
+<body>
+<div class="bg">
+    <span class="prev">prev</span>
+    <span class="next">next</span>
+    <div class="imgbg">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+<div class="cl"></div>
+</div>
+<script type="text/javascript">
+    function DY_scroll(bg,prev,next,imgbg,speed,auto){
+        var bg = $(bg);
+        var prev = $(prev);
+        var next = $(next);
+        var longdiv = $(imgbg).find('ul');
+        var width = longdiv.find('li').outerWidth(true);
+        var speed = speed;
+        var auto = auto;
+        //next按钮
+        next.click(function(e) {
+            longdiv.animate({marginLeft:-width},function(){
+                longdiv.find('li').eq(0).appendTo(longdiv);
+                longdiv.css('margin-left',0);
+            });
+        });
+        //prev按钮
+        prev.click(function(e) {
+            longdiv.find('li:last').prependTo(longdiv);
+            longdiv.css('margin-left',-width);
+            longdiv.animate({marginLeft:0});
+        });
+        //自动播放与鼠标滑动停顿
+        if(auto == true){
+            ad = setInterval(function(){
+                next.click();    
+            },speed*1000);
+            bg.hover(function(e) {
+                clearInterval(ad);
+            },function(e){
+                ad = setInterval(function(){
+                    next.click();    
+                },speed*1000);    
+            });    
+        }
+    }
+    DY_scroll('.bg','.prev','.next','.imgbg',3,true);
+</script>
+</body>
+</html>

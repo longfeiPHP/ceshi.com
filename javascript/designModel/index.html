@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js设计模式</title>
+</head>
+
+<body>
+<script type="text/javascript">
+//1、工厂模式 (都是o对象)
+/* function createPerson(name,age,job){
+	var o = new Object();
+	o.name = name;
+	o.age = age;
+	o.job = job;
+	return o;
+}
+var person1 = createPerson("Nicholas",29,"Software Engineer");
+var person2 = createPerson("Greg",27,"doctor");
+console.log(person1);
+console.log(person2); */
+//2、构造函数模式(里面的方法多次创建)
+/* function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	this.sayName = function(){
+		return this.name;
+	}
+}
+var person1 = new Person("Nicholas",29,"Software Engineer");
+var person2 = new Person("Greg",29,"Doctor");
+console.log(person1.sayName());
+console.log(person2.sayName()); */
+//3、原型模式(属性共享严重)
+/* function Person(){}
+Person.prototype.name = "Nicholas";
+Person.prototype.age = 29;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function(){
+	return this.name;
+}
+var person1 = new Person();
+console.log(person1.name);
+console.log(person1.sayName()); */
+//4、构造函数模式和原型模式的组合模式
+/* function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	this.friends = ["Shelby","Court"];
+}
+Person.prototype = {
+	constructor:Person,
+	sayName:function(){
+		return this.name;
+	}
+};
+var person1 = new Person("Nicholas",29,"Software Engineer");
+console.log(person1.name);
+console.log(person1.sayName()); */
+//5、动态原型模式(弥补了原型模式中多次创建函数的问题)
+/* function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	if(typeof this.sayName != "function"){
+		Person.prototype.sayName = function(){
+			return this.name;
+		}
+	}
+}
+var person1 = new Person("Nicholas",29,"Software Engineer");
+console.log(person1.name);
+console.log(person1.sayName()); */
+//6、继承(原型链)
+/* function SuperType(){
+	this.property = true;
+	this.abc = "abc";
+}
+SuperType.prototype.SuperValue = function(){
+	return this.abc;
+}
+function SubType(){
+	this.property = false;
+}
+SubType.prototype = new SuperType();
+SubType.prototype.SubValue = function(){
+	return this.property;
+}
+var instance = new SubType();
+console.log(instance.abc);//abc
+console.log(instance.property);//false */
+//7、继承(借用构造函数)
+/* function SuperType(){
+	this.colors = ["red","blue","green"];
+}
+function SubperType(){
+	SuperType.call(this);
+}
+var instance = new SubperType();
+console.log(instance.colors); */
+//8、组合继承(借用构造函数和原型链)
+/* function SuperType(name){
+    this.name = name;
+    this.colors = ['red','blue','green'];
+}
+SuperType.prototype.sayName = function(){
+    return this.name;
+}
+function SubType(name,age){
+    SuperType.call(this,name);
+    this.age = age;
+}
+SubType.prototype = new SuperType();
+SubType.prototype.constructor = SubType;
+SubType.prototype.sayAge = function(){
+    return this.age;
+}
+var instance1 = new SubType("Nicholas",29);
+console.log(instance1.name); */
+//9、原型式继承(对象字面量继承:对象的浅复制)
+/* function object(o){
+	function F(){}
+	F.prototype = o;
+	return new F();
+}
+var person = {
+    name:"Nicholas",
+    friends:["shelby","Court","Van"]
+};
+var anotherPerson = object(person);
+console.log(anotherPerson);*/
+//10、寄生式继承
+/* function object(o){
+	function F(){}
+	F.prototype = o;
+	return new F();
+}
+function createAnother(original){
+	var clone = object(original);
+	clone.sayHi = function(){
+		console.log("Hi");
+	}
+	clone.age = 29;
+	return clone;
+}
+var person = {
+	name:"Nicholas",
+	friends:["Shelby","Court","Van"]
+};
+var anotherPerson = createAnother(person);
+console.log(anotherPerson); */
+//11、寄生组合式继承
+/* function object(o){
+	function F(){}
+	F.prototype = o;
+	return new F();
+}
+function inheritPrototype(subType,superType){
+	var prototype = object(superType.prototype);
+	prototype.constructor = subType;
+	subType.prototype = prototype;
+}
+function SuperType(name){
+	this.name = name;
+	this.colors = ["red","blue","green"];
+}
+SuperType.prototype.sayName = function(){
+	return this.name;
+};
+function SubType(name,age){
+	SuperType.call(this,name);
+	this.age = age;
+}
+inheritPrototype(SubType,SuperType);
+SubType.prototype.sayAge = function(){
+	return this.age;
+};
+var instance1 = new SubType("Nicholas",29);
+console.log(instance1.name);
+console.log(instance1.age);
+console.log(instance1.sayAge());
+console.log(instance1.sayName()); */
+
+/**
+ * 递归函数
+ */
+/* function factorial(num){
+	if(num<=1){
+		return 1;
+	}else{
+		return num * arguments.callee(num-1);
+	}
+}
+console.log(factorial(4)); */
+
+/**
+ * 闭包
+ */
+/* var name = "The Window";
+var object = {
+	name:"My Object",
+	getName:function(){
+		//var self = this;
+		return function(){
+			//return self.name;
+			return this.name;
+		};
+	}
+};
+console.log(object.getName()());//The Window */
+
+/* function putputNumbers(count){
+	for(var i=0;i<count;i++){
+		alert(i);
+	}
+	var i;
+	alert(i);
+}
+putputNumbers(5); */
+//私有作用域(其实也是一个闭包)
+/* (function(){
+	var a = "abc";
+})();
+console.log(a);//error not defined */
+//获取url中的参数
+/* function getQueryStringArgs(){
+	var qs = (location.search.length > 0 ? location.search.substring(1) : "");
+	args = {};
+	items = qs.length ? qs.split('&') : [];//用 & 把字符串拆成数组
+	item = null;
+	name = null;
+	value = null;
+	i = 0;
+	len = items.length;
+	for(i=0; i < len; i++){
+		item = items[i].split("=");
+		//["abc", "abc"]
+		value = decodeURIComponent(item[1]);
+		if(name.length){
+			args[name] = value;
+		}
+	}
+	return args;
+}
+var args = getQueryStringArgs();
+console.log(args['bcd']); */
+//navigator对象
+/* console.log(navigator.appCodeName);//Mozilla 浏览器名称
+console.log(navigator.appMinorVersion);//undefined 次版本信息
+console.log(navigator.appName);//Netscape 完整的浏览器名称
+console.log(navigator.appVersion);//5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1 完整浏览器名称
+console.log(navigator.buildID);//undefined 浏览器编译版本
+console.log(navigator.cookieEnable);//undefined cookie是否启用
+console.log(navigator.cpuClass);
+console.log(navigator.language);
+console.log(navigator.onLine);
+console.log(navigator.oscpu);
+console.log(navigator.platform);//win32 操作系统
+console.log(navigator.plugins);
+console.log(navigator.userAgent); */
+//浏览器引擎检测
+var client = function(){
+	//引擎
+	var engine = {
+		ie:0,
+		gecko:0,
+		webkit:0,
+		khtml:0,
+		opera:0,
+		ver:null
+	};
+	//浏览器
+	var browser = {
+		ie:0,
+		firefox:0,
+		safari:0,
+		konq:0,
+		opera:0,
+		chrome:0,
+		ver:null
+	};
+	//平台、设备和操作系统
+	var system = {
+		win:false,
+		mac:false,
+		xll:false,
+		//移动设备
+		iphone:false,
+		ipod:false,
+		ipad:false,
+		ios:false,
+		android:false,
+		nokiaN:false,
+		winMobile:false,
+		//游戏系统
+		wii:false,
+		ps:false
+	};
+	//在此检测呈现引擎、平台和设备
+	var ua = navigator.userAgent;
+	if(window.opera){//opera
+		engine.ver = browser.ver = window.opera.version();
+		engine.opera = browser.opera = parseFloat(engine.ver);
+	}else if(/AppleWebKit\/(\S+)/.test(ua)){
+		engine.ver = RegExp["$1"];
+		engine.webkit = parseFloat(engine.ver);
+		//确定chrome还是Safari
+		if(/Chrome\/(\S+)/.test(ua)){
+			browser.ver = RegExp["$1"];
+			browser.chrome = parseFloat(browser.ver);
+		}else if(/Version\/(\S+)/.test(ua)){
+			browser.ver = RegExp["$1"];
+			browser.safari = parseFloat(browser.ver);
+		}else{//近似地确定版本号
+			var safariVersion = 1;
+			if(engine.webkit < 100){
+				safariVersion = 1;
+			}else if(engine.webkit < 312){
+				safariVersion = 1.2;
+			}else if(engine.webkit < 412){
+				safariVersion = 1.3;
+			}else{
+				safariVersion = 2;
+			}
+			browser.safari = browser.ver = safariVersion;
+		}
+	}else if(/KHTML\/(\S+)/.test(ua) || /Konqueror\/([^;]+)/.test(ua)){
+		engine.ver = browser.ver = RegExp["$1"];
+		engine.khtml = browser.konq = parseFloat(engine.ver);
+	}else if(/rv:([^\)]+)\) Gecko\/\d{8}/.test(ua)){
+		engine.ver = RegExp["$1"];
+		engine.gecko = parseFloat(engine.ver);
+		//确定是不是Firefox
+		if(/Firefox\/(\S+)/.test(ua)){
+			browser.ver = RegExp["$1"];
+			browser.firefox = parseFloat(browser.ver);
+		}
+	}else if(/MSIE ([^;]+)/.test(ua)){
+		engine.ver = browser.ver = RegExp["$1"];
+		engine.ie = browser.ie = parseFloat(engine.ver);
+	}
+	//检测浏览器
+	browser.ie = engine.ie;
+	browser.opera = engine.opera;
+	
+	//检测平台
+	var p = navigator.platform;
+	system.win = p.indexOf("Win") == 0;
+	system.mac = p.indexOf("Mac") == 0;
+	system.xll = (p == "xll") || (p.indexOf("Linux") == 0);
+	
+	//检测windows操作系统
+	if(system.win){
+		if(/Win(?:dows )?([^do]{2})\s?(\d+\.\d+)?/.test(ua)){
+			if(RegExp["$1"] == "NT"){
+				switch(RegExp["$2"]){
+					case "5.0":
+						system.win = "2000";
+						break;
+					case "5.1":
+						system.win = "XP";
+						break;
+					case "6.0":
+						system.win = "Vista";
+						break;
+					case "6.1":
+						system.win = "7";
+						break;
+					default:
+						system.win = "NT";
+						break;
+				}
+			}else if(RegExp["$1"] == "9x"){
+				system.win = "ME";
+			}else{
+				system.win = RegExp["$1"];
+			}
+		}
+	}
+	//移动设备
+	system.iphone = ua.indexOf("iphone") > -1;
+	system.ipod = ua.indexOf("ipod") > -1;
+	system.ipad = ua.indexOf("ipad") > -1;
+	system.nokiaN = ua.indexOf("nokiaN") > -1;
+	
+	//windows mobile
+	if(system.win == "CE"){
+		system.winMoble = system.win;
+	}else if(system.win == "Ph"){
+		if(/Windows Phone OS (\d+.\d+)/.test(ua)){
+			system.win = "phone";
+			system.winMoble = parseFloat(RegExp["$1"]);
+		}
+	}
+	//检测IOS版本
+	if(system.mac && ua.indexOf("Mobile") > -1){
+		if(/CPU (?:iPhone )?OS (\d+_\d+)/.test(ua)){
+			system.ios = parseFloat(RegExp.$1.replace("_", "."));
+		}else{
+			system.ios = 2;//不能真正检测出来只能猜测
+		}
+	}
+	//检测Android版本
+	if(/Android (\d+\.\d+)/.test(ua)){
+		system.android = parseFloat(RegExp.$1);
+	}
+	//游戏系统
+	system.wii = ua.indexOf("Wii") > -1;
+	system.ps = /playstation/i.test(ua);
+	//返回这些对象
+	return {
+		engine:engine,
+		browser:browser,
+		system:system
+	};
+}();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

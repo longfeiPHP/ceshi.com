@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery插件的写法</title>
+<script type="text/javascript" src="../jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+(function( $ ) {
+	$.fn.test = function(options) {
+		var settings = $.extend({
+            // These are the defaults.
+            set1:1,
+            set2:2
+        }, options );
+		console.log($(this));
+	};
+}( jQuery ));
+</script>
+<div id="test">test</div>
+<script>
+$(function(){
+	$("#test").test({set1:'one'});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>canvas 使用实例</title>
+</head>
+
+<body style="padding:0; margin:0;" onLoad="draw()">
+
+<canvas width="150" height="150" style=" border:1px solid #ccc;" id="canvas"></canvas>
+
+<script type="text/javascript">
+function draw(){
+	var canvas = document.getElementById("canvas");//获取canvas元素
+	var ctx = canvas.getContext("2d");//定义canvas场景
+	
+/**基本形状的绘制**/
+	//绘制矩形
+	//ctx.fillStyle = "rgb(200,0,0)";//填充颜色
+	//ctx.fillRect(0,0,55,50);//绘制图形
+	//ctx.fillStyle = "rgba(0,0,200,0.5)";//填充颜色带透明度
+	//ctx.fillRect(30,30,55,50);//绘制图形
+	//ctx.clearRect(30,30,55,50);//绘制空白的矩形
+	//ctx.strokeRect(30,30,55,50);//绘制带边框的矩形
+	
+	//按路径绘制图形
+	//ctx.beginPath();//开始路径绘图
+	//ctx.moveTo(75,50);//笔触起点
+	//ctx.lineTo(100,75);//画直线
+	//ctx.lineTo(100,25);//画直线
+	//ctx.lineTo(75,50);//画直线(其实已经回到了起点)
+	//ctx.closePath();//关闭路径(不关闭也可以,在填充的时候回字段闭合路径)
+	//ctx.fill();//填充路径
+	
+	//使用路径绘制一个笑脸(主要用到圆形画法)
+	//ctx.beginPath();
+	//ctx.arc(75,75,50,0,Math.PI*2,true);//ctx.arc(圆心横坐标,圆心纵坐标,半径,起始角度,终止角度,顺时针);
+	//ctx.moveTo(110,75);
+	//ctx.arc(75,75,35,0,Math.PI,false);
+	//ctx.moveTo(65,65);
+	//ctx.arc(60,65,5,0,Math.PI*2,true);
+	//ctx.moveTo(95,65);
+	//ctx.arc(90,65,5,0,Math.PI*2,true);
+	//ctx.stroke();
+	
+	//用路径画矩形
+	//ctx.rect(75,75,50,50);
+	//ctx.stroke();
+
+	//贝塞尔曲线,二次贝塞尔曲线,三次贝塞尔曲线..........
+	
+/**样式与色彩**/
+	//填充颜色与轮廓颜色
+	//ctx.rect(75,75,50,50);
+	//ctx.fillStyle = "rgb(200,0,0)";//填充颜色
+	//ctx.fill();
+	//ctx.strokeStyle = "orange";//轮廓颜色orange/#FFA500/rgb(255,165,0)/rgba(255,165,0,1)
+	//ctx.stroke();
+	
+	//画一个渐变效果的四色格
+	/*ctx.fillStyle = '#FD0';
+	ctx.fillRect(0,0,75,75);
+	ctx.fillStyle = '#6C0';
+	ctx.fillRect(75,0,75,75);
+	ctx.fillStyle = '#09F';
+	ctx.fillRect(0,75,75,75);
+	ctx.fillStyle = '#F30';
+	ctx.fillRect(75,75,75,75);
+	ctx.fillStyle = "#FFF";//填充颜色设置成白色
+	ctx.globalAlpha = 0.2;//设置透明度
+	for(var i=0;i<7;i++){
+		ctx.beginPath();
+		ctx.arc(75,75,10+10*i,0,Math.PI*2,true);
+		ctx.fill();	
+	}*/
+	
+	//画4个带有渐变的矩形
+	/*ctx.fillStyle = 'rgb(255,221,0)';
+	ctx.fillRect(0,0,150,37.5);
+	ctx.fillStyle = 'rgb(102,204,0)';
+	ctx.fillRect(0,37.5,150,37.5);
+	ctx.fillStyle = 'rgb(0,153,255)';
+	ctx.fillRect(0,75,150,37.5);
+	ctx.fillStyle = 'rgb(255,51,0)';
+	ctx.fillRect(0,112.5,150,37.5);
+	for(var i=0;i<10;i++){
+		ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+		for(var j=0;j<4;j++){
+			ctx.fillRect(5+i*14,5+j*37.5,14,27.5);
+		}
+	}*/
+	
+/**绘制文本**/
+	//ctx.font = "24px serif";//设置文本样式:font/textAlign/textBaseline/direction     文本测量
+	//ctx.fillText("Hello Word",10,50);//实心文字
+	//ctx.strokeText("Hello Word",10,50);//空心文字
+	
+/**强大的处理图片**/
+	//引入背景图片,并且以该图片作为背景进行绘图
+	/*var img = new Image();
+	img.onload = function(){
+		ctx.drawImage(img,0,0);//处理图像 0 0处开始绘制图像
+      	ctx.beginPath();
+      	ctx.moveTo(30,96);
+      	ctx.lineTo(70,66);
+      	ctx.lineTo(103,76);
+      	ctx.lineTo(170,15);
+      	ctx.stroke();
+	};
+	img.src = "1.jpg";//引入图像的位置*/
+	
+	//对图片进行缩放 比例不等
+	/*var img = new Image();
+	img.onload = function(){
+		ctx.drawImage(img,0,0,150,150);
+	};
+	img.src = '1.jpg';*/
+	
+/**变形**/
+	//save 与 restore 图像的样式保存于内存(数据是以"堆"的方式保存到内存里面)
+	/*ctx.fillRect(0,0,150,150);
+	ctx.save();
+	ctx.fillStyle = '#09F';
+	ctx.fillRect(15,15,120,120);
+	ctx.save();
+	ctx.fillStyle = '#FFF';
+	ctx.globalAlpha = 0.5;
+	ctx.fillRect(30,30,90,90);
+	ctx.restore();
+	ctx.fillRect(45,45,60,60);//注意样式
+	ctx.restore();
+	ctx.fillRect(60,60,30,30);//注意样式*/
+	
+	//移动 translate 移动基准点
+	/*ctx.fillRect(0,0,50,50);
+	ctx.translate(50,50);
+	ctx.fillRect(0,0,50,50);*/ 
+	
+	//还有旋转/缩放/变形 等更多操作,有待深入研究
+
+/**更多高级操作请访问:https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage**/
+}
+</script>
+</body>
+</html>

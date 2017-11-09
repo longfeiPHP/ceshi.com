@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<style>
+.two ul li{color:#F00;}
+</style>
+<script type="text/javascript" src="../jquery-1.9.1.js"></script>
+<script>
+$(document).ready(function(e) {
+    $("#oneTag").click(function(e) {
+        $("#pageone").show();
+		$("#pagetwo").hide();
+    });
+	$("#twoTag").click(function(e) {
+        $("#pagetwo").show();
+		$("#pageone").hide();
+    });
+	$("#pageone").scroll(function(){
+		alert(123);	
+	});
+});
+</script>
+</head>
+
+<body>
+<div style="position:fixed;"><span id="oneTag">第一页</span><span id="twoTag">第二页</span></div>
+<div id="pageone" style="display:block;border:1px solid #f00;height:200px;overflow-y:auto;">
+	<ul>
+		<li>1111111111111111111111</li>
+        <li>2222222222222222222222</li>
+        <li>3333333333333333333333</li>
+        <li>4444444444444444444444</li>
+        <li>5555555555555555555555</li>
+        <li>6666666666666666666666</li>
+        <li>777777777777777777777777</li>
+        <li>88888888888888888888888</li>
+        <li>999999999999999999999999</li>
+        <li>1111111111111111111111</li>
+        <li>2222222222222222222222</li>
+        <li>3333333333333333333333</li>
+        <li>4444444444444444444444</li>
+        <li>5555555555555555555555</li>
+        <li>6666666666666666666666</li>
+        <li>777777777777777777777777</li>
+        <li>88888888888888888888888</li>
+        <li>999999999999999999999999</li>
+        <li>1111111111111111111111</li>
+        <li>2222222222222222222222</li>
+        <li>3333333333333333333333</li>
+        <li>4444444444444444444444</li>
+        <li>5555555555555555555555</li>
+        <li>6666666666666666666666</li>
+        <li>777777777777777777777777</li>
+        <li>88888888888888888888888</li>
+        <li>999999999999999999999999</li>
+        <li>1111111111111111111111</li>
+        <li>2222222222222222222222</li>
+        <li>3333333333333333333333</li>
+        <li>4444444444444444444444</li>
+        <li>5555555555555555555555</li>
+        <li>6666666666666666666666</li>
+        <li>777777777777777777777777</li>
+        <li>88888888888888888888888</li>
+        <li>999999999999999999999999</li>
+        <li>1111111111111111111111</li>
+        <li>2222222222222222222222</li>
+        <li>3333333333333333333333</li>
+        <li>4444444444444444444444</li>
+        <li>5555555555555555555555</li>
+        <li>6666666666666666666666</li>
+        <li>777777777777777777777777</li>
+        <li>88888888888888888888888</li>
+        <li>999999999999999999999999</li>
+    </ul>
+</div>
+<div style="display:none;overflow-y:auto; border:1px solid #f00;height:200px;" class="two" id="pagetwo">
+	<ul>
+    	<li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
+        <li>bbbbbbbbbbbbbbbbbbbbbbbbb</li>
+        <li>cccccccccccccccccccccccc</li>
+        <li>ddddddddddddddddddddddddd</li>
+        <li>eeeeeeeeeeeeeeeeeeeeeeeee</li>
+        <li>fffffffffffffffffffff</li>
+        <li>ggggggggggggggggggggggggg</li>
+        <li>hhhhhhhhhhhhhhhhhhhhhhhhhhh</li>
+        <li>iiiiiiiiiiiiiiiiiiiiiiiiiii</li>
+        <li>jjjjjjjjjjjjjjjjjjjjjjjjjjjj</li>
+        <li>kkkkkkkkkkkkkkkkkkkkkkkkkkkkk</li>
+        <li>llllllllllllllllllllllllllllll</li>
+        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
+        <li>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</li>
+        <li>ooooooooooooooooooooooooooooooooooooo</li>
+        <li>pppppppppppppppppppppppppppppppppppppp</li>
+        <li>qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</li>
+        <li>rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</li>
+        <li>sssssssssssssssssssssssssssssss</li>
+        <li>tttttttttttttttttttttttttttttt</li>
+        <li>uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu</li>
+        <li>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</li>
+        <li>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</li>
+        <li>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+        <li>yyyyyyyyyyyyyyyyyyyyyyyyyyy</li>
+        <li>zzzzzzzzzzzzzzzzzzzzzzzzzzzzz</li>
+        <li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
+        <li>bbbbbbbbbbbbbbbbbbbbbbbbb</li>
+        <li>cccccccccccccccccccccccc</li>
+        <li>ddddddddddddddddddddddddd</li>
+        <li>eeeeeeeeeeeeeeeeeeeeeeeee</li>
+        <li>fffffffffffffffffffff</li>
+        <li>ggggggggggggggggggggggggg</li>
+        <li>hhhhhhhhhhhhhhhhhhhhhhhhhhh</li>
+        <li>iiiiiiiiiiiiiiiiiiiiiiiiiii</li>
+        <li>jjjjjjjjjjjjjjjjjjjjjjjjjjjj</li>
+        <li>kkkkkkkkkkkkkkkkkkkkkkkkkkkkk</li>
+        <li>llllllllllllllllllllllllllllll</li>
+        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
+        <li>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</li>
+        <li>ooooooooooooooooooooooooooooooooooooo</li>
+        <li>pppppppppppppppppppppppppppppppppppppp</li>
+        <li>qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</li>
+        <li>rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</li>
+        <li>sssssssssssssssssssssssssssssss</li>
+        <li>tttttttttttttttttttttttttttttt</li>
+        <li>uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu</li>
+        <li>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</li>
+        <li>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</li>
+        <li>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+        <li>yyyyyyyyyyyyyyyyyyyyyyyyyyy</li>
+        <li>zzzzzzzzzzzzzzzzzzzzzzzzzzzzz</li>
+        <li>aaaaaaaaaaaaaaaaaaaaaaaaa</li>
+        <li>bbbbbbbbbbbbbbbbbbbbbbbbb</li>
+        <li>cccccccccccccccccccccccc</li>
+        <li>ddddddddddddddddddddddddd</li>
+        <li>eeeeeeeeeeeeeeeeeeeeeeeee</li>
+        <li>fffffffffffffffffffff</li>
+        <li>ggggggggggggggggggggggggg</li>
+        <li>hhhhhhhhhhhhhhhhhhhhhhhhhhh</li>
+        <li>iiiiiiiiiiiiiiiiiiiiiiiiiii</li>
+        <li>jjjjjjjjjjjjjjjjjjjjjjjjjjjj</li>
+        <li>kkkkkkkkkkkkkkkkkkkkkkkkkkkkk</li>
+        <li>llllllllllllllllllllllllllllll</li>
+        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
+        <li>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</li>
+        <li>ooooooooooooooooooooooooooooooooooooo</li>
+        <li>pppppppppppppppppppppppppppppppppppppp</li>
+        <li>qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</li>
+        <li>rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</li>
+        <li>sssssssssssssssssssssssssssssss</li>
+        <li>tttttttttttttttttttttttttttttt</li>
+        <li>uuuuuuuuuuuuuuuuuuuuuuuuuuuuuu</li>
+        <li>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</li>
+        <li>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</li>
+        <li>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+        <li>yyyyyyyyyyyyyyyyyyyyyyyyyyy</li>
+        <li>zzzzzzzzzzzzzzzzzzzzzzzzzzzzz</li>
+    </ul>
+</div>
+</body>
+</html>

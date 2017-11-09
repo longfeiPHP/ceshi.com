@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0,maximum-scale=1, user-scalable=no">
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+</head>
+
+<body>
+<input type="button" onclick="add()" value="添加定时器" />
+<input type="button" onclick="remove()" value="取消定时器" />
+<script>
+var t;
+function add(){
+	t = setTimeout(function(){
+		alert('time');
+	},2000);
+	//clearTimeout(t);
+}
+function remove(){
+	clearTimeout(t);
+}
+var str = 'sds.sdfsd.jpg';
+var test = str.lastIndexOf('.'); 
+alert(test);
+</script>
+</body>
+</html>
