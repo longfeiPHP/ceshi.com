@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>css demo</title>
+<style type="text/css">
+img{
+    /*旋转*/
+    -webkit-transform:rotate(10deg);
+       -moz-transform:rotate(10deg);
+        -ms-transform:rotate(10deg);
+         -o-transform:rotate(10deg);
+            transform:rotate(10deg);
+    /*盒阴影: 水平偏移 垂直偏移 模糊大小 颜色与透明度 (左上角为坐标原点)*/
+    -webkit-box-shadow:2px 2px 3px rgba(135, 139, 144, 0.4);         
+       -moz-box-shadow:2px 2px 3px rgba(135, 139, 144, 0.4);         
+        -ms-box-shadow:2px 2px 3px rgba(135, 139, 144, 0.4);         
+         -o-box-shadow:2px 2px 3px rgba(135, 139, 144, 0.4);
+            box-shadow:2px 2px 3px rgba(135, 139, 144, 0.4);
+    /*过渡: 所有属性均执行过渡(也可以知道个别属性如background) 执行时间为0.5m 过渡类型为先慢后快*/
+    -webkit-transition:all 0.5s ease-in;          
+       -moz-transition:all 0.5s ease-in;          
+        -ms-transition:all 0.5s ease-in;          
+         -o-transition:all 0.5s ease-in;          
+            transition:all 0.5s ease-in;          
+}
+img:hover{
+    /*旋转*/
+    -webkit-transform:rotate(0deg) scale(1.05);
+       -moz-transform:rotate(0deg) scale(1.05);
+        -ms-transform:rotate(0deg) scale(1.05);
+         -o-transform:rotate(0deg) scale(1.05);
+            transform:rotate(0deg) scale(1.05);
+    /*盒阴影: 水平偏移 垂直偏移 模糊大小 颜色与透明度 (左上角为坐标原点)*/
+    -webkit-box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4);         
+       -moz-box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4);     
+        -ms-box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4);         
+         -o-box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4); 
+            box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4); 
+}
+</style>
+</head>
+
+<body>
+<img alt="" src="mm1.jpg" />
+</body>
+</html>
