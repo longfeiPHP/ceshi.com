@@ -64,7 +64,7 @@ if(false){
 		echo 'sucessfully';
 	}
 }
-
+echo intval(abs(-5.3));
 
 ?>
 

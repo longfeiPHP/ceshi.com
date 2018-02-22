@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript 面向对象</title>
+</head>
+
+<body>
+<script type="text/javascript">
+function funcA(){
+    this.show = function(){};
+}
+//代码块1
+(function (){
+	var a = new funcA();
+	console.log(a);
+});
+
+//代码块2
+(function(){
+	function funcA(){
+		this.name = 'abc';
+		this.show = function(str){
+			console.log(str);
+		};
+	}
+	function funcB(){
+		
+	}
+	var a = new funcA();
+//	funcB.prototype = a;
+	var b = new funcB();
+	b.__proto__ = a;
+	console.log(b.name);
+});
+
+//代码块3
+(function(){
+	var name = "test";
+	function t() {
+	    console.log(name);
+	    var name = "test1";
+	    console.log(name);
+	}
+	t();
+})();
+</script>
+</body>
+</html>

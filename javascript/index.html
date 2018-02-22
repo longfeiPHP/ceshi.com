@@ -25,5 +25,17 @@ var str = 'sds.sdfsd.jpg';
 var test = str.lastIndexOf('.'); 
 alert(test);
 </script>
+<div id="ttt" onclick="cl()">ttt</div>
+<script>
+function cl(){
+	alert('js click');
+}
+$(function(){
+	
+	$("#ttt").bind( "click", function(e){
+		alert("bind");
+	});
+});
+</script>
 </body>
 </html>
