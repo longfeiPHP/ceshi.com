@@ -10,21 +10,26 @@
 <button id="ajax">requestAjax</button>
 <script type="text/javascript">
 $(function(){
-	$("#ajax").click(function(e) {
-        $.ajax({  
-			type:'get',  
-			url : 'http://192.168.1.230/post.php',
-			data:{loginuser:'lee',loginpass:'123456'},  
-			dataType : 'jsonp',  
-			jsonp:"jsoncallback",  
-			success  : function(data) {  
-				//alert("用户名："+ data.user +" 密码："+ data.pass);
-				console.log(data); 
-			},  
-			error : function() {  
-				alert('fail');  
-			}  
-    	});	
+	
+
+	$("#ajax").click(function(){
+
+		 $.ajax({
+             async : true,
+             url : "https://api.douban.com/v2/book/search",
+             type : "GET",
+             dataType : "jsonp", // 返回的数据类型，设置为JSONP方式
+             jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+             jsonpCallback: 'handleResponse', //设置回调函数名
+             data : {
+                 q : "javascript", 
+                 count : 1
+             }, 
+             success: function(response, status, xhr){
+                 console.log('状态为：' + status + ',状态是：' + xhr.statusText);
+                 console.log(response);
+             }
+         });
     });
 });
 </script>

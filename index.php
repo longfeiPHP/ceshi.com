@@ -64,7 +64,11 @@ if(false){
 		echo 'sucessfully';
 	}
 }
-echo intval(abs(-5.3));
+
+if(isset($_GET['cookid'])){
+    setcookie("cookid",1000,time()+3600);
+}
+
 
 ?>
 

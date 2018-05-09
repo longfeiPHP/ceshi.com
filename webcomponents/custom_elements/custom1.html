@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>Custom Elements</title>
+<style type="text/css">
+greeting{
+    color:red;
+}
+</style>
+</head>
+
+<body>
+<script>
+var tabs=document.createElement("my-tabs");
+console.log(tabs instanceof HTMLUnknownElement);//false
+console.log(tabs instanceof HTMLElement);//true
+window.onload = function(){
+	function customTag(tagName, fn){
+		console.log(document.getElementsByTagName("div"));
+        Array .from(document.getElementsByTagName(tagName)).forEach(fn);
+	}
+	function greetingHandler(element){
+		element.innerHTML = "你好 世界";
+	}
+	customTag('greeting',greetingHandler);
+};
+</script>
+<greeting>Hello World!</greeting>
+<greeting>Hello World!</greeting>
+<greeting>Hello World!</greeting>
+</body>
+</html>

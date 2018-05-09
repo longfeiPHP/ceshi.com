@@ -10,16 +10,26 @@
 <div class="myDiv">abc</div>
 <div class="myDiv">def</div>
 <div class="myDiv">ghi</div>
+<div class="otherdiv">other div</div>
 <script type="text/javascript">
-(function($){
+/**(function($){
 	$.fn.abc = function(){
-		$(this).each(function(){
-			console.log($(this).html());
-		});
+		console.log($(this).get(0));
 	}
-})(jQuery)
+})(jQuery);
 $(function(){
-	$(".myDiv").abc();
+	$(".otherdiv").abc();
+});**/
+(function($){
+	$.extend({
+	    showMsg:function(){
+	        alert('some msg');
+	    }
+	});
+})(jQuery);
+
+$(function(){
+	$.showMsg();
 });
 </script>
 </body>
